@@ -75,5 +75,5 @@ group :development do
   # gem "spring"
 
   gem "standard"
-  gem 'annotate'
+  gem "annotate"
 end
