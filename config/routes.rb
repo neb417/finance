@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  root "dashboar#index"
+  root "dashboard#index"
   resources :incomes
 end
