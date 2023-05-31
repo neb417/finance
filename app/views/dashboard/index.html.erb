@@ -1,1 +1,12 @@
 <h3>Dashboard</h3>
+
+<div id="incomes">
+  <%= link_to "New income", new_income_path %>
+
+  <% @incomes.each do |income| %>
+    <%= render income %>
+    <p>
+      <%= link_to "Update Income", edit_income_path(income) %>
+    </p>
+  <% end %>
+</div>
