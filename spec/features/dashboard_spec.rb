@@ -1,13 +1,13 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe "Dashboard", type: :feature do
   describe "GET /index" do
-    it 'routes to root path' do
+    it "routes to root path" do
       visit root_path
       expect(page).to have_content "Dashboard"
     end
 
-    it 'has incomes on dashboard' do
+    it "has incomes on dashboard" do
       incomes = create_list(:income, 3)
       income1 = incomes.first
       income2 = incomes.second
