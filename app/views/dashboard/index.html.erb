@@ -1,20 +1,29 @@
-<h3>Dashboard</h3>
+<div class="min-h-full">
+  <header class="bg-white shadow">
+      <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+          <h1 class="text-3xl font-bold tracking-tight text-gray-900">Dashboard</h1>
+      </div>
+  </header>
 
-<div id="incomes">
-  <h3>Incomes</h3>
+  <main>
+    <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+      <div class="mt-10" id="incomes">
+        <h3 class="text-2xl font-bold tracking-tight text-gray-900">Incomes</h3>
 
-  <%= turbo_frame_tag "new_income_frame" do %>
-    <div class="header">
-        <%= link_to "New income", new_income_path %>
+        <%= turbo_frame_tag "new_income_frame" do %>
+          <div class="header">
+              <%= link_to "New income", new_income_path %>
+          </div>
+        <% end %>
+        <% @incomes.each do |income| %>
+          <div class="py-3">
+            <%= turbo_frame_tag "income_#{income.id}" do %>
+                <%= render income %>
+                <p class="py-3"><%= link_to "Edit Income", edit_income_path(income), class:"btn btn-primary" %></p>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     </div>
-  <% end %>
-
-  <% @incomes.each do |income| %>
-    <%= turbo_frame_tag "income_#{income.id}" do %>
-        <%= render income %>
-        <p>
-          <%= link_to "Update Income", edit_income_path(income) %>
-        </p>
-    <% end %>
-  <% end %>
+  </main>
 </div>
