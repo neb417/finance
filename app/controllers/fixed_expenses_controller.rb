@@ -1,5 +1,5 @@
 class FixedExpensesController < ApplicationController
-  before_action :set_fixed_expense, only: %i[ show edit update destroy ]
+  before_action :set_fixed_expense, only: %i[show edit update destroy]
 
   # GET /fixed_expenses or /fixed_expenses.json
   def index
@@ -58,13 +58,14 @@ class FixedExpensesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_fixed_expense
-      @fixed_expense = FixedExpense.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def fixed_expense_params
-      params.require(:fixed_expense).permit(:expense_name, :annual_cost, :monthly_cost, :bi_weekly_cost)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_fixed_expense
+    @fixed_expense = FixedExpense.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def fixed_expense_params
+    params.require(:fixed_expense).permit(:expense_name, :annual_cost, :monthly_cost, :bi_weekly_cost)
+  end
 end

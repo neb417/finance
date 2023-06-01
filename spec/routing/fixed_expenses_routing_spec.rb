@@ -18,7 +18,6 @@ RSpec.describe FixedExpensesController, type: :routing do
       expect(get: "/fixed_expenses/1/edit").to route_to("fixed_expenses#edit", id: "1")
     end
 
-
     it "routes to #create" do
       expect(post: "/fixed_expenses").to route_to("fixed_expenses#create")
     end
