@@ -21,7 +21,7 @@ RSpec.describe "Dashboard", type: :feature do
       expect(page).to have_link "New income"
     end
 
-    it 'has fixed expenses on the dashboard' do
+    it "has fixed expenses on the dashboard" do
       fixed_expenses = create_list(:fixed_expense, 2)
       fixed1 = fixed_expenses.first
       fixed2 = fixed_expenses.last
