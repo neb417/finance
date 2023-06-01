@@ -24,7 +24,7 @@ class IncomesController < ApplicationController
     @income = Income.new(income_params)
 
     respond_to do |format|
-      if @income.save
+      if @income.update_from_dashboard(params:)
         format.html { redirect_to income_url(@income), notice: "Income was successfully created." }
         format.json { render :show, status: :created, location: @income }
       else
@@ -37,8 +37,8 @@ class IncomesController < ApplicationController
   # PATCH/PUT /incomes/1 or /incomes/1.json
   def update
     respond_to do |format|
-      if @income.update(income_params)
-        format.html { redirect_to income_url(@income), notice: "Income was successfully updated." }
+      if @income.update_from_dashboard(params: params)
+        format.html { redirect_to root_path, notice: "Income was successfully updated." }
         format.json { render :show, status: :ok, location: @income }
       else
         format.html { render :edit, status: :unprocessable_entity }

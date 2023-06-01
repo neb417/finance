@@ -13,7 +13,7 @@
 
   <div>
     <%= form.label :income_type, style: "display: block" %>
-    <%= form.text_field :income_type %>
+    <%= form.select :income_type, [["Hourly", "HR"], ["Salary", "SA"], ["Other", "OT"]] %>
   </div>
 
   <div>

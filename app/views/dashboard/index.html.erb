@@ -1,12 +1,20 @@
 <h3>Dashboard</h3>
 
 <div id="incomes">
-  <%= link_to "New income", new_income_path %>
+  <h3>Incomes</h3>
+
+  <%= turbo_frame_tag "new_income_frame" do %>
+    <div class="header">
+        <%= link_to "New income", new_income_path %>
+    </div>
+  <% end %>
 
   <% @incomes.each do |income| %>
-    <%= render income %>
-    <p>
-      <%= link_to "Update Income", edit_income_path(income) %>
-    </p>
+    <%= turbo_frame_tag "income_#{income.id}" do %>
+        <%= render income %>
+        <p>
+          <%= link_to "Update Income", edit_income_path(income) %>
+        </p>
+    <% end %>
   <% end %>
 </div>

@@ -1,6 +1,7 @@
 <h1>New income</h1>
-
-<%= render "form", income: @income %>
+<%= turbo_frame_tag "new_income_frame" do %>
+  <%= render "form", income: @income %>
+<% end %>
 
 <br>
 

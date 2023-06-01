@@ -1,7 +1,7 @@
 <h1>Editing income</h1>
-
-<%= render "form", income: @income %>
-
+<%= turbo_frame_tag dom_id(@income) do %>
+  <%= render "form", income: @income %>
+<% end %>
 <br>
 
 <div>
