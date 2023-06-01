@@ -20,5 +20,16 @@ RSpec.describe "Dashboard", type: :feature do
       expect(page).to have_content income3.income_type
       expect(page).to have_link "New income"
     end
+
+    it 'has fixed expenses on the dashboard' do
+      fixed_expenses = create_list(:fixed_expense, 2)
+      fixed1 = fixed_expenses.first
+      fixed2 = fixed_expenses.last
+
+      visit root_path
+
+      expect(page).to have_content(fixed1.expense_name)
+      expect(page).to have_content(fixed2.expense_name)
+    end
   end
 end

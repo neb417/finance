@@ -15,9 +15,9 @@
 #
 FactoryBot.define do
   factory :fixed_expense do
-    expense_name { "MyString" }
-    annual_cost { 1 }
-    monthly_cost { 1 }
-    bi_weekly_cost { 1 }
+    expense_name { Faker::Company.name }
+    annual_cost_cents { 100000 }
+    monthly_cost_cents { 10000 }
+    bi_weekly_cost_cents { 1000 }
   end
 end
