@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe "incomes/index", type: :feature do
-  let!(:incomes) { create_list(:income, 2)}
+  let!(:incomes) { create_list(:income, 2) }
 
   it "renders a list of incomes" do
     visit incomes_path
