@@ -18,8 +18,8 @@ class FixedExpense < ApplicationRecord
   monetize :monthly_cost_cents
   monetize :bi_weekly_cost_cents
 
-  after_create_commit  -> { broadcast_append_to :fixed_expense, partial: "fixed_expenses/fixed_expense", locals: { fixed_expense: self } }
-  after_update_commit  -> { broadcast_replace_to self }
+  after_create_commit -> { broadcast_append_to :fixed_expense, partial: "fixed_expenses/fixed_expense", locals: {fixed_expense: self} }
+  after_update_commit -> { broadcast_replace_to self }
   after_destroy_commit -> { broadcast_remove_to :fixed_expense, target: dom_id(self, :index) }
 
   def self.new_from_dashboard(params:)
