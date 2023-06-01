@@ -1,0 +1,38 @@
+<%= form_with(model: income) do |form| %>
+  <% if income.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(income.errors.count, "error") %> prohibited this income from being saved:</h2>
+
+      <ul>
+        <% income.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <div class="flex-container">
+      <div class="px-3">
+        <%= form.label :income_type, style: "display: block" %>
+        <%= form.select :income_type, [["Hourly", "HR"], ["Salary", "SA"]], selected: params[:income_type] %>
+      </div>
+
+      <div class="px-3">
+        <%= form.label :rate, style: "display: block" %>
+        <%= form.number_field :rate %>
+      </div>
+
+      <div class="px-3">
+        <%= form.label :hours, style: "display: block" %>
+        <%= form.number_field :hours %>
+      </div>
+
+      <div class="px-3">
+        <%= form.label :weekly_income, style: "display: block" %>
+        <%= form.number_field :weekly_income, readonly: true %>
+      </div>
+    </div>
+
+    <div class="py-3">
+      <%= form.submit "Update Income", class:"btn btn-primary" %>
+    </div>
+<% end %>
