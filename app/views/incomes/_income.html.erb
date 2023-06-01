@@ -1,22 +1,13 @@
 <div id="<%= dom_id income %>">
-  <p>
-    <strong>Income type:</strong>
-    <%= income.income_type %>
-  </p>
+  <strong>Income type:</strong>
+  <%= income.income_type %>
 
-  <p>
-    <strong>Rate:</strong>
-    <%= income.rate %>
-  </p>
+  <strong>Rate:</strong>
+  <%= humanized_money_with_symbol(income.rate) %>
 
-  <p>
-    <strong>Hours:</strong>
-    <%= income.hours %>
-  </p>
+  <strong>Hours:</strong>
+  <%= income.hours %>
 
-  <p>
-    <strong>Weekly income:</strong>
-    <%= income.weekly_income %>
-  </p>
-
+  <strong>Weekly income:</strong>
+  <%= humanized_money_with_symbol(income.weekly_income) %>
 </div>
