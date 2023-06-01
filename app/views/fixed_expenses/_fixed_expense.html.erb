@@ -1,27 +1,16 @@
 <div id="<%= dom_id fixed_expense %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Expense Name:</strong>
-    <%= fixed_expense.expense_name %>
-  </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Annual cost:</strong>
-    <%= fixed_expense.annual_cost %>
-  </p>
+  <strong>Expense Name:</strong>
+  <%= fixed_expense.expense_name %>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Monthly cost:</strong>
-    <%= fixed_expense.monthly_cost %>
-  </p>
+  <strong>Annual cost:</strong>
+  <%= humanized_money_with_symbol(fixed_expense.annual_cost) %>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Bi-weekly cost:</strong>
-    <%= fixed_expense.bi_weekly_cost %>
-  </p>
+  <strong>Monthly cost:</strong>
+  <%= humanized_money_with_symbol(fixed_expense.monthly_cost)%>
 
-  <% if action_name != "show" %>
-    <%= link_to "Show this fixed expense", fixed_expense, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this fixed expense', edit_fixed_expense_path(fixed_expense), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
-  <% end %>
+  <strong>Bi-weekly cost:</strong>
+  <%= humanized_money_with_symbol(fixed_expense.bi_weekly_cost) %>
+
+  <%= link_to "Edit this Fixed Expense", edit_fixed_expense_path(fixed_expense), class:"rounded-lg py-1 px-4 bg-gray-100 inline-block font-medium" %>
 </div>

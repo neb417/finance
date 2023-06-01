@@ -21,11 +21,11 @@ class FixedExpensesController < ApplicationController
 
   # POST /fixed_expenses or /fixed_expenses.json
   def create
-    @fixed_expense = FixedExpense.new(fixed_expense_params)
+    @fixed_expense = FixedExpense.new_from_dashboard(params: params)
 
     respond_to do |format|
       if @fixed_expense.save
-        format.html { redirect_to fixed_expense_url(@fixed_expense), notice: "Fixed expense was successfully created." }
+        format.html { redirect_to root_path, notice: "Fixed expense was successfully created." }
         format.json { render :show, status: :created, location: @fixed_expense }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +39,7 @@ class FixedExpensesController < ApplicationController
     respond_to do |format|
       if @fixed_expense.update(fixed_expense_params)
         format.html { redirect_to fixed_expense_url(@fixed_expense), notice: "Fixed expense was successfully updated." }
-        format.json { render :show, status: :ok, location: @fixed_expense }
+        # format.json { render :show, status: :ok, location: @fixed_expense }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @fixed_expense.errors, status: :unprocessable_entity }

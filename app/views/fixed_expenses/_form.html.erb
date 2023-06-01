@@ -17,18 +17,22 @@
     </div>
 
     <div class="my-5">
-      <%= form.label :annual_cost %>
-      <%= form.number_field :annual_cost, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+      <%= form.label :amount %>
+      <%= form.number_field :amount, step: :any, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
     </div>
 
     <div class="my-5">
-      <%= form.label :monthly_cost %>
-      <%= form.number_field :monthly_cost, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+      <%= form.label :frequency %>
     </div>
 
     <div class="my-5">
-      <%= form.label :bi_weekly_cost %>
-      <%= form.number_field :bi_weekly_cost, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+      <%= form.label :frequency, "Annually", value: "annually" %>
+      <%= form.radio_button :frequency, "annually" %>
+    </div>
+
+    <div class="my-5">
+      <%= form.label :frequency, "Monthly", value: "monthly" %>
+      <%= form.radio_button :frequency, "monthly" %>
     </div>
   </div>
 
