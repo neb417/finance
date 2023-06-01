@@ -25,5 +25,22 @@
         <% end %>
       </div>
     </div>
+
+    <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+      <div class="mt-10", id="fixed_expenses">
+        <h3 class="text-2xl font-bold tracking-tight text-gray-900">Fixed Expenses</h3>
+        <%= turbo_frame_tag "new_fixed_expense_frame" do %>
+          <%= link_to "New Fixed Expense", new_fixed_expense_path %>
+        <% end %>
+      </div>
+      <% @fixed_expenses.each do |fixed_expense| %>
+        <div class="py-3">
+          <%= turbo_frame_tag "fixed_expense_#{fixed_expense.id}" do %>
+            <%= render fixed_expense %>
+            <p class="py-3"><%= link_to "Edit Fixed Expense", edit_fixed_expense_path(fixed_expense), class:"btn btn-primary" %></p>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   </main>
 </div>
