@@ -35,8 +35,6 @@ class Income < ApplicationRecord
         hours: 40,
         weekly_income: income[:rate].to_f / 52
       )
-    when "Other"
-    #   Unsure
     else
       false
     end

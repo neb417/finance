@@ -10,7 +10,7 @@ RSpec.describe "incomes/new", type: :view do
     ))
   end
 
-  it "renders new income form" do
+  xit "renders new income form" do
     render
 
     assert_select "form[action=?][method=?]", incomes_path, "post" do

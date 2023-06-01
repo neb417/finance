@@ -13,7 +13,7 @@
 
   <div>
     <%= form.label :income_type, style: "display: block" %>
-    <%= form.select :income_type, [["Hourly", "HR"], ["Salary", "SA"], ["Other", "OT"]] %>
+    <%= form.select :income_type, [["Hourly", "HR"], ["Salary", "SA"]], selected: params[:income_type] %>
   </div>
 
   <div>
@@ -28,7 +28,7 @@
 
   <div>
     <%= form.label :weekly_income, style: "display: block" %>
-    <%= form.number_field :weekly_income %>
+    <%= form.number_field :weekly_income, readonly: true %>
   </div>
 
   <div>
