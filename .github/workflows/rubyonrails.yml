@@ -9,7 +9,8 @@ on:
   push:
     branches: [ "main" ]
   pull_request:
-    branches: [ "main" ]
+    branches:
+      - '*'
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -38,7 +39,9 @@ jobs:
         run: bin/rails db:schema:load
       # Add or replace test runners here
       - name: Run tests
-        run: bundle exec rspec
+        run: |
+          bundle exec rake assets:precompile
+          bundle exec rspec
 
   lint:
     runs-on: ubuntu-latest
@@ -50,5 +53,5 @@ jobs:
         with:
           bundler-cache: true
       # Add or replace any other lints here
-      - name: Lint Ruby files
-        run: standardrb --parallel
+      - name: Standard Check
+        run: bundle exec standardrb
