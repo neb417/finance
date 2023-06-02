@@ -37,8 +37,8 @@ class FixedExpensesController < ApplicationController
   # PATCH/PUT /fixed_expenses/1 or /fixed_expenses/1.json
   def update
     respond_to do |format|
-      if @fixed_expense.update(fixed_expense_params)
-        format.html { redirect_to fixed_expense_url(@fixed_expense), notice: "Fixed expense was successfully updated." }
+      if @fixed_expense.update_from_dashboard(params: params[:fixed_expense])
+        format.html { redirect_to root_path, notice: "Fixed expense was successfully updated." }
         # format.json { render :show, status: :ok, location: @fixed_expense }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class FixedExpensesController < ApplicationController
     @fixed_expense.destroy
 
     respond_to do |format|
-      format.html { redirect_to fixed_expenses_url, notice: "Fixed expense was successfully destroyed." }
+      format.html { redirect_to root_path, notice: "Fixed expense was successfully destroyed." }
       format.json { head :no_content }
     end
   end
