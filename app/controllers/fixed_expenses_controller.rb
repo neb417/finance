@@ -50,10 +50,9 @@ class FixedExpensesController < ApplicationController
   # DELETE /fixed_expenses/1 or /fixed_expenses/1.json
   def destroy
     @fixed_expense.destroy
-
     respond_to do |format|
-      format.html { redirect_to root_path, notice: "Fixed expense was successfully destroyed." }
-      format.json { head :no_content }
+      format.html { redirect_to fixed_expenses_path, notice: "Fixed expense was successfully destroyed." }
+      format.turbo_stream
     end
   end
 
