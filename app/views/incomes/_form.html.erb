@@ -13,22 +13,22 @@
     <div class="flex-container">
       <div class="px-3">
         <%= form.label :income_type, style: "display: block" %>
-        <%= form.select :income_type, [["Hourly", "HR"], ["Salary", "SA"]], selected: params[:income_type] %>
+        <%= form.select :income_type, [["Hourly", "HR"], ["Salary", "SA"]], selected: params[:income_type], class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
       </div>
 
       <div class="px-3">
         <%= form.label :rate, style: "display: block" %>
-        <%= form.number_field :rate %>
+        <%= form.number_field :rate, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
       </div>
 
       <div class="px-3">
         <%= form.label :hours, style: "display: block" %>
-        <%= form.number_field :hours %>
+        <%= form.number_field :hours, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
       </div>
 
       <div class="px-3">
         <%= form.label :weekly_income, style: "display: block" %>
-        <%= form.number_field :weekly_income, readonly: true %>
+        <%= form.number_field :weekly_income, readonly: true, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
       </div>
     </div>
 

@@ -1,0 +1,18 @@
+<div class="py-3">
+  <%= turbo_frame_tag fixed_expense do %>
+    <strong>Expense Name:</strong>
+    <%= fixed_expense.expense_name %>
+
+    <strong>Annual cost:</strong>
+    <%= humanized_money_with_symbol(fixed_expense.annual_cost) %>
+
+    <strong>Monthly cost:</strong>
+    <%= humanized_money_with_symbol(fixed_expense.monthly_cost)%>
+
+    <strong>Bi-weekly cost:</strong>
+    <%= humanized_money_with_symbol(fixed_expense.bi_weekly_cost) %>
+
+    <%= link_to "Edit", edit_fixed_expense_path(fixed_expense), class:"rounded-lg py-1 px-4 bg-gray-100 inline-block font-medium" %>
+    <%= button_to "Delete", fixed_expense_path(fixed_expense), method: :delete, class:"rounded-lg py-1 px-4 bg-gray-100 inline-block font-medium" %>
+  <% end %>
+</div>
