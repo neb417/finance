@@ -16,11 +16,9 @@ RSpec.describe "fixed_expenses/new", type: :view do
     assert_select "form[action=?][method=?]", fixed_expenses_path, "post" do
       assert_select "input[name=?]", "fixed_expense[expense_name]"
 
-      assert_select "input[name=?]", "fixed_expense[annual_cost]"
+      assert_select "input[name=?]", "fixed_expense[amount]"
 
-      assert_select "input[name=?]", "fixed_expense[monthly_cost]"
-
-      assert_select "input[name=?]", "fixed_expense[bi_weekly_cost]"
+      assert_select "input[name=?]", "fixed_expense[frequency]"
     end
   end
 end
