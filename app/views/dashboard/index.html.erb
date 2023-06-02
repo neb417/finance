@@ -8,13 +8,14 @@
   <main>
     <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
       <div class="mt-5" id="incomes">
-        <h3 class="text-2xl font-bold tracking-tight text-gray-900">Incomes</h3>
 
         <%= turbo_frame_tag "new_income_frame" do %>
           <div class="header">
+            <h3 class="text-2xl font-bold tracking-tight text-gray-900">Incomes</h3>
               <%= link_to "New income", new_income_path %>
           </div>
         <% end %>
+
         <% @incomes.each do |income| %>
           <div class="py-3">
             <%= turbo_frame_tag "income_#{income.id}" do %>
@@ -27,20 +28,17 @@
     </div>
 
     <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-      <div class="mt-5", id="fixed_expenses">
-        <h3 class="text-2xl font-bold tracking-tight text-gray-900">Fixed Expenses</h3>
-        <%= turbo_frame_tag "new_fixed_expense_frame" do %>
-          <%= link_to "New Fixed Expense", new_fixed_expense_path %>
-        <% end %>
-      </div>
-        <%= turbo_stream_from :fixed_expense %>
-        <% @fixed_expenses.each do |fixed_expense| %>
-          <div class="py-3">
-            <%= turbo_frame_tag "fixed_expense_#{fixed_expense.id}" do %>
-              <%= render fixed_expense %>
-            <% end %>
-          </div>
-        <% end %>
+
+      <%= turbo_frame_tag "fixed_expense_header_frame" do %>
+        <div class="mt-5">
+          <h3 class="text-2xl font-bold tracking-tight text-gray-900">Fixed Expenses</h3>
+          <%= link_to "New Fixed Expense", new_fixed_expense_path, data: { turbo_frame: "fixed_expenses"} %>
+        </div>
+      <% end %>
+
+      <%= turbo_frame_tag "fixed_expenses" do %>
+        <%= render @fixed_expenses %>
+      <% end %>
     </div>
   </main>
 </div>
