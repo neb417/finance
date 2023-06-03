@@ -1,18 +1,10 @@
-<div class="py-3">
-  <%= turbo_frame_tag fixed_expense do %>
-    <strong>Expense Name:</strong>
-    <%= fixed_expense.expense_name %>
-
-    <strong>Annual cost:</strong>
-    <%= humanized_money_with_symbol(fixed_expense.annual_cost) %>
-
-    <strong>Monthly cost:</strong>
-    <%= humanized_money_with_symbol(fixed_expense.monthly_cost)%>
-
-    <strong>Bi-weekly cost:</strong>
-    <%= humanized_money_with_symbol(fixed_expense.bi_weekly_cost) %>
-
-    <%= link_to "Edit", edit_fixed_expense_path(fixed_expense), class:"rounded-lg py-1 px-4 bg-gray-100 inline-block font-medium" %>
-    <%= button_to "Delete", fixed_expense_path(fixed_expense), method: :delete, class:"rounded-lg py-1 px-4 bg-gray-100 inline-block font-medium" %>
-  <% end %>
-</div>
+<%= turbo_frame_tag dom_id(fixed_expense)  do %>
+  <div class="grid grid-cols-6">
+    <% attributes = [fixed_expense.expense_name, humanized_money_with_symbol(fixed_expense.annual_cost), humanized_money_with_symbol(fixed_expense.monthly_cost), humanized_money_with_symbol(fixed_expense.bi_weekly_cost)] %>
+    <% attributes.each do |attribute| %>
+      <div class="px-5 py-1"><%= attribute %></div>
+    <% end %>
+    <div class="px-5 py-1"><%= link_to "Edit", edit_fixed_expense_path(fixed_expense), class:"rounded-lg py-1 px-4 bg-gray-100 inline-block font-medium" %></div>
+    <div class="py-1"><%= button_to "Delete", fixed_expense_path(fixed_expense), method: :delete, class:"rounded-lg py-1 px-4 bg-gray-100 inline-block font-medium" %></div>
+  </div>
+<% end %>

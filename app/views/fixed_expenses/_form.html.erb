@@ -11,35 +11,38 @@
     </div>
   <% end %>
   <div class="flex-container">
-    <div class="my-5">
+    <div class="my-5 px-5">
       <%= form.label :expense_name %>
       <%= form.text_field :expense_name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
     </div>
 
-    <div class="my-5">
+    <div class="my-5 px-5">
       <%= form.label :amount %>
       <%= form.number_field :amount, step: :any, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
     </div>
 
-    <div class="my-5">
-      <%= form.label :frequency %>
+    <div class="my-5 px-5">
+      <%#= form.label :frequency %>
+      <div class="my-5 px-5">
+        <%= form.label :frequency, "Annually", value: "annually" %>
+        <%= form.radio_button :frequency, "annually" %>
+      </div>
+      <div class="my-5 px-5">
+        <%= form.label :frequency, "Monthly", value: "monthly" %>
+        <%= form.radio_button :frequency, "monthly" %>
+      </div>
     </div>
 
-    <div class="my-5">
-      <%= form.label :frequency, "Annually", value: "annually" %>
-      <%= form.radio_button :frequency, "annually" %>
+    <div class="my-5 px-5">
+      <div class="py-3">
+        <%= form.submit class: "rounded-lg py-1 px-4 bg-gray-100 inline-block font-medium" %>
+      </div>
+      <div class="">
+        <%= link_to "Cancel", root_path, class: "rounded-lg py-1 px-4 bg-gray-100 inline-block font-medium" %>
+      </div>
+      </div>
     </div>
 
-    <div class="my-5">
-      <%= form.label :frequency, "Monthly", value: "monthly" %>
-      <%= form.radio_button :frequency, "monthly" %>
-    </div>
   </div>
-
-  <div class="py-3">
-    <%= form.submit class: "rounded-lg py-1 px-4 bg-gray-100 inline-block font-medium" %>
-  </div>
-
-  <%= link_to "Cancel", root_path, class: "rounded-lg py-1 px-4 bg-gray-100 inline-block font-medium" %>
 
 <% end %>
