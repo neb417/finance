@@ -6,35 +6,36 @@
   </header>
 
   <main>
-    <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-      <div class="mt-5" id="incomes">
-
-        <%= turbo_frame_tag "new_income_frame" do %>
-          <div class="header">
-            <h3 class="text-2xl font-bold tracking-tight text-gray-900">Incomes</h3>
-              <%= link_to "New income", new_income_path %>
+    <div class="bg-white shadow">
+      <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+        <%= turbo_frame_tag "income_header_frame" do %>
+          <div class="mt-5">
+            <h3 class="text-2xl font-bold tracking-tight text-gray-900">Income</h3>
+            <%= link_to "New Income", new_income_path, data: { turbo_frame: :incomes } %>
           </div>
         <% end %>
 
-        <% @incomes.each do |income| %>
-          <div class="py-3">
-            <%= turbo_frame_tag "income_#{income.id}" do %>
-                <%= render income %>
-                <p class="py-3"><%= link_to "Edit this Income", edit_income_path(income), class:"rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %></p>
-            <% end %>
+        <%= turbo_frame_tag :incomes do %>
+          <div class="grid grid-cols-6">
+            <div class="px-5"><strong>Income Type</strong></div>
+            <div class="px-5"><strong>Rate</strong></div>
+            <div class="px-5"><strong>Hours</strong></div>
+            <div class="px-5"><strong>Weekly Income</strong></div>
           </div>
+          <%= render @incomes %>
         <% end %>
+        </div>
       </div>
-    </div>
 
   <div class="bg-white shadow">
     <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
       <%= turbo_frame_tag "fixed_expense_header_frame" do %>
         <div class="mt-3">
           <h3 class="text-2xl font-bold tracking-tight text-gray-900">Fixed Expenses</h3>
-          <%= link_to "New Fixed Expense", new_fixed_expense_path, data: { turbo_frame: :fixed_expenses} %>
+          <%= link_to "New Fixed Expense", new_fixed_expense_path, data: { turbo_frame: :fixed_expenses } %>
         </div>
       <% end %>
+
       <%= turbo_frame_tag :fixed_expenses do %>
         <div class="grid grid-cols-6">
           <div class="px-5"><strong>Expense Name</strong></div>

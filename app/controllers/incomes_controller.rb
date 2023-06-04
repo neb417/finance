@@ -25,7 +25,7 @@ class IncomesController < ApplicationController
 
     respond_to do |format|
       if @income.update_from_dashboard(params:)
-        format.html { redirect_to income_url(@income), notice: "Income was successfully created." }
+        format.html { redirect_to root_path, notice: "Income was successfully created." }
         format.json { render :show, status: :created, location: @income }
       else
         format.html { render :new, status: :unprocessable_entity }

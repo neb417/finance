@@ -1,13 +1,9 @@
-<div id="<%= dom_id income %>">
-  <strong>Income type:</strong>
-  <%= income.income_type %>
-
-  <strong>Rate:</strong>
-  <%= humanized_money_with_symbol(income.rate) %>
-
-  <strong>Hours:</strong>
-  <%= income.hours %>
-
-  <strong>Weekly income:</strong>
-  <%= humanized_money_with_symbol(income.weekly_income) %>
-</div>
+<%= turbo_frame_tag dom_id(income) do %>
+  <div class="grid grid-cols-6">
+    <% attributes = [income.income_type, humanized_money_with_symbol(income.rate), income.hours, humanized_money_with_symbol(income.weekly_income)] %>
+    <% attributes.each do |attribute| %>
+      <div class="px-5 py-1"><%= attribute %></div>
+    <% end %>
+    <div class="px-5 py-1"><%= link_to "Edit", edit_income_path(income), class:"rounded-lg py-1 px-4 bg-gray-100 inline-block font-medium" %></div>
+  </div>
+<% end %>
