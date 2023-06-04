@@ -1,10 +1,9 @@
 <div class="min-h-full">
   <header class="bg-white shadow">
-      <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-          <h1 class="text-3xl font-bold tracking-tight text-gray-900">Dashboard</h1>
-      </div>
+    <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+        <h1 class="text-3xl font-bold tracking-tight text-gray-900">Dashboard</h1>
+    </div>
   </header>
-
   <main>
     <div class="bg-white shadow">
       <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
@@ -44,6 +43,12 @@
             <% end %>
           </div>
           <%= render @fixed_expenses %>
+          <div class="grid grid-cols-6">
+            <% total_costs = ["Total", humanized_money_with_symbol(@totals.total_annual_cost), humanized_money_with_symbol(@totals.total_monthly_cost), humanized_money_with_symbol(@totals.total_bi_weekly_cost)] %>
+            <% total_costs.each do |total| %>
+              <div class="px-5"><strong><%= total %></strong></div>
+            <% end %>
+          </div>
         <% end  %>
       </div>
     </div>
