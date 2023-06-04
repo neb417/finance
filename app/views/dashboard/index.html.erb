@@ -21,7 +21,9 @@
               <div class="px-5"><strong><%= income_heading %></strong></div>
             <% end %>
           </div>
+
           <%= render @incomes %>
+
         <% end %>
         </div>
       </div>
@@ -42,7 +44,9 @@
               <div class="px-5"><strong><%= fixed_heading %></strong></div>
             <% end %>
           </div>
+
           <%= render @fixed_expenses %>
+
           <div class="grid grid-cols-6">
             <% total_costs = ["Total", humanized_money_with_symbol(@totals.total_annual_cost), humanized_money_with_symbol(@totals.total_monthly_cost), humanized_money_with_symbol(@totals.total_bi_weekly_cost)] %>
             <% total_costs.each do |total| %>
