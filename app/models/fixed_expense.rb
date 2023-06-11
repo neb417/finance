@@ -66,9 +66,9 @@ class FixedExpense < ApplicationRecord
 
   def self.total_costs
     OpenStruct.new(
-      total_annual_cost: sum(:annual_cost_cents).to_f / 100,
-      total_monthly_cost: sum(:monthly_cost_cents).to_f / 100,
-      total_bi_weekly_cost: sum(:bi_weekly_cost_cents).to_f / 100
+      total_annual_cost: sum(&:annual_cost_cents).to_f / 100,
+      total_monthly_cost: sum(&:monthly_cost_cents).to_f / 100,
+      total_bi_weekly_cost: sum(&:bi_weekly_cost_cents).to_f / 100
     )
   end
 end
