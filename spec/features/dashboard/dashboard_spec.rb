@@ -18,7 +18,7 @@ RSpec.describe "Dashboard", type: :feature do
       expect(page).to have_content income1.income_type
       expect(page).to have_content income2.income_type
       expect(page).to have_content income3.income_type
-      expect(page).to have_link "New income"
+      expect(page).to have_link "New Income"
     end
 
     it "has fixed expenses on the dashboard" do

@@ -26,7 +26,6 @@ class FixedExpensesController < ApplicationController
     respond_to do |format|
       if @fixed_expense.save
         format.html { redirect_to root_path, notice: "Fixed expense was successfully created." }
-        format.json { render :show, status: :created, location: @fixed_expense }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @fixed_expense.errors, status: :unprocessable_entity }
@@ -39,7 +38,7 @@ class FixedExpensesController < ApplicationController
     respond_to do |format|
       if @fixed_expense.update_from_dashboard(params: params[:fixed_expense])
         format.html { redirect_to root_path, notice: "Fixed expense was successfully updated." }
-        # format.json { render :show, status: :ok, location: @fixed_expense }
+        format.turbo_stream { render turbo_stream: turbo_stream.update(@fixed_expense) }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @fixed_expense.errors, status: :unprocessable_entity }
@@ -52,7 +51,7 @@ class FixedExpensesController < ApplicationController
     @fixed_expense.destroy
     respond_to do |format|
       format.html { redirect_to fixed_expenses_path, notice: "Fixed expense was successfully destroyed." }
-      format.turbo_stream
+      format.turbo_stream { render turbo_stream: turbo_stream.remove(@fixed_expense) }
     end
   end
 
