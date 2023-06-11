@@ -1,0 +1,15 @@
+<%= turbo_frame_tag :fixed_expenses do %>
+  <%= render @fixed_expenses %>
+  <div class="grid grid-cols-6">
+    <% total_costs = [
+      "Total",
+      humanized_money_with_symbol(@totals.total_annual_cost),
+      humanized_money_with_symbol(@totals.total_monthly_cost),
+      humanized_money_with_symbol(@totals.total_bi_weekly_cost)
+    ]
+    %>
+    <% total_costs.each do |total| %>
+      <div class="px-5"><strong><%= total %></strong></div>
+    <% end %>
+  </div>
+<% end %>
