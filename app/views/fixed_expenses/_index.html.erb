@@ -1,5 +1,13 @@
 <%= turbo_frame_tag :fixed_expenses do %>
+  <div class="grid grid-cols-6">
+    <% fixed_headings = ["Expense Name", "Annual Cost", "Monthly Cost", "Bi-weekly Cost"] %>
+    <% fixed_headings.each do |fixed_heading| %>
+      <div class="px-5"><strong><%= fixed_heading %></strong></div>
+    <% end %>
+  </div>
+
   <%= render @fixed_expenses %>
+
   <div class="grid grid-cols-6">
     <% total_costs = [
       "Total",

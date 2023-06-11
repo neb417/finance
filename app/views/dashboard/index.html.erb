@@ -15,15 +15,7 @@
         <% end %>
 
         <%= turbo_frame_tag :incomes do %>
-          <div class="grid grid-cols-6">
-            <% income_headings = ["Income Type", "Rate", "Hours", "Weekly Income"] %>
-            <% income_headings.each do |income_heading| %>
-              <div class="px-5"><strong><%= income_heading %></strong></div>
-            <% end %>
-          </div>
-
-          <%= render @incomes %>
-
+          <%= render "incomes/index" %>
         <% end %>
         </div>
       </div>
@@ -38,15 +30,7 @@
         <% end %>
 
         <%= turbo_frame_tag :fixed_expenses do %>
-          <div class="grid grid-cols-6">
-            <% fixed_headings = ["Expense Name", "Annual Cost", "Monthly Cost", "Bi-weekly Cost"] %>
-            <% fixed_headings.each do |fixed_heading| %>
-              <div class="px-5"><strong><%= fixed_heading %></strong></div>
-            <% end %>
-          </div>
-
           <%= render "fixed_expenses/index" %>
-
         <% end  %>
       </div>
     </div>
