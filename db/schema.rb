@@ -10,9 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_01_153223) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_11_195916) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "federal_tax_brackets", force: :cascade do |t|
+    t.string "tier"
+    t.integer "bottom_range_cents", default: 0, null: false
+    t.string "bottom_range_currency", default: "USD", null: false
+    t.integer "top_range_cents", default: 0, null: false
+    t.string "top_range_currency", default: "USD", null: false
+    t.float "rate"
+    t.integer "cumulative_cents", default: 0, null: false
+    t.string "cumulative_currency", default: "USD", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "fixed_expenses", force: :cascade do |t|
     t.string "expense_name"
