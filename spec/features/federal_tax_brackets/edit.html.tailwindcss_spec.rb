@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe "federal_tax_brackets/edit", type: :view do
   let(:federal_tax_bracket) {
@@ -19,7 +19,6 @@ RSpec.describe "federal_tax_brackets/edit", type: :view do
     render
 
     assert_select "form[action=?][method=?]", federal_tax_bracket_path(federal_tax_bracket), "post" do
-
       assert_select "input[name=?]", "federal_tax_bracket[tier]"
 
       assert_select "input[name=?]", "federal_tax_bracket[bottom_range]"

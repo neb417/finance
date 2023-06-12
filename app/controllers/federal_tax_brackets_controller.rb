@@ -1,5 +1,5 @@
 class FederalTaxBracketsController < ApplicationController
-  before_action :set_federal_tax_bracket, only: %i[ show edit update destroy ]
+  before_action :set_federal_tax_bracket, only: %i[show edit update destroy]
 
   # GET /federal_tax_brackets or /federal_tax_brackets.json
   def index
@@ -61,13 +61,14 @@ class FederalTaxBracketsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_federal_tax_bracket
-      @federal_tax_bracket = FederalTaxBracket.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def federal_tax_bracket_params
-      params.require(:federal_tax_bracket).permit(:tier, :bottom_range, :top_range, :rate, :cumulative)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_federal_tax_bracket
+    @federal_tax_bracket = FederalTaxBracket.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def federal_tax_bracket_params
+    params.require(:federal_tax_bracket).permit(:tier, :bottom_range, :top_range, :rate, :cumulative)
+  end
 end

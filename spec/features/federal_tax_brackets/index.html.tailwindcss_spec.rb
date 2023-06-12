@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe "federal_tax_brackets/index", type: :feature do
   # before(:each) do
