@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe "federal_tax_brackets/show", type: :feature do
   # before(:each) do
@@ -10,8 +10,8 @@ RSpec.describe "federal_tax_brackets/show", type: :feature do
   #     cumulative: 5
   #   ))
   # end
-    let!(:fed1) { create(:federal_tax_bracket) }
-    let!(:fed2) { create(:federal_tax_bracket) }
+  let!(:fed1) { create(:federal_tax_bracket) }
+  let!(:fed2) { create(:federal_tax_bracket) }
 
   it "renders attributes in <p>" do
     visit federal_tax_bracket_path(fed2)

@@ -19,7 +19,7 @@ FactoryBot.define do
     tier { Faker::Name.name }
     bottom_range_cents { Faker::Number.within(range: 1..10) }
     top_range_cents { Faker::Number.within(range: 11..20) }
-    rate { Faker::Number.within(range: 0.01..0.5)}
+    rate { Faker::Number.within(range: 0.01..0.5) }
     cumulative_cents { Faker::Number.within(range: 1..20) }
   end
 end

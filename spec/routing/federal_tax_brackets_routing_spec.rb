@@ -18,7 +18,6 @@ RSpec.describe FederalTaxBracketsController, type: :routing do
       expect(get: "/federal_tax_brackets/1/edit").to route_to("federal_tax_brackets#edit", id: "1")
     end
 
-
     it "routes to #create" do
       expect(post: "/federal_tax_brackets").to route_to("federal_tax_brackets#create")
     end
