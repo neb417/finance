@@ -35,6 +35,8 @@ class FixedExpensesController < ApplicationController
 
   # PATCH/PUT /fixed_expenses/1 or /fixed_expenses/1.json
   def update
+    @totals = FixedExpense.total_costs
+
     respond_to do |format|
       if @fixed_expense.update_from_dashboard(params: params[:fixed_expense])
         format.html { redirect_to root_path, notice: "Fixed expense was successfully updated." }

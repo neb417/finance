@@ -4,7 +4,9 @@
         <h1 class="text-3xl font-bold tracking-tight text-gray-900">Dashboard</h1>
     </div>
   </header>
+
   <main>
+
     <div class="bg-white shadow">
       <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
         <%= turbo_frame_tag "income_header_frame" do %>
@@ -17,8 +19,8 @@
         <%= turbo_frame_tag :incomes do %>
           <%= render "incomes/index" %>
         <% end %>
-        </div>
       </div>
+    </div>
 
     <div class="bg-white shadow">
       <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
@@ -34,5 +36,6 @@
         <% end  %>
       </div>
     </div>
+
   </main>
 </div>

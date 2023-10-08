@@ -71,4 +71,8 @@ class FixedExpense < ApplicationRecord
       total_bi_weekly_cost: sum(&:bi_weekly_cost_cents).to_f / 100
     )
   end
+
+  def self.get_ordered
+    all.order(annual_cost_cents: :desc)
+  end
 end
