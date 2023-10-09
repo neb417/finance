@@ -1,5 +1,5 @@
-<turbo-stream action="replace" target="total_costs">
-  <template>
-    <%= render partial: "shared/total_costs", locals: { totals: @totals } %>
-  </template>
-</turbo-stream>
+<%= turbo_stream.update @fixed_expense %>
+
+<%= turbo_stream.replace "total_costs" do %>
+  <%= render partial: "shared/total_costs", locals: { totals: @totals } %>
+<% end %>

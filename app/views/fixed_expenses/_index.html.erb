@@ -1,4 +1,4 @@
-<div class="grid grid-cols-6">
+<div id="fixed_expense_labels" class="grid grid-cols-6">
   <% fixed_headings = ["Expense Name", "Annual Cost", "Monthly Cost", "Bi-weekly Cost"] %>
   <% fixed_headings.each do |fixed_heading| %>
     <div class="px-5 py-4"><strong><%= fixed_heading %></strong></div>
@@ -6,7 +6,3 @@
 </div>
 
 <%= render @fixed_expenses %>
-
-<%= turbo_frame_tag "total_costs" do %>
-  <%= render partial: "shared/total_costs", locals: { totals: @totals } %>
-<% end %>

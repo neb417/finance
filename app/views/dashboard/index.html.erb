@@ -34,6 +34,10 @@
         <%= turbo_frame_tag :fixed_expenses do %>
           <%= render "fixed_expenses/index" %>
         <% end  %>
+
+        <%= turbo_frame_tag "total_costs" do %>
+          <%= render partial: "shared/total_costs", locals: { totals: @totals } %>
+        <% end %>
       </div>
     </div>
 
