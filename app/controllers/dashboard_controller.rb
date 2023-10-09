@@ -1,5 +1,4 @@
 class DashboardController < ApplicationController
-  include SetDashboardInstanceVariables
   def index
     @incomes = Income.all
     @fixed_expenses = FixedExpense.get_ordered
