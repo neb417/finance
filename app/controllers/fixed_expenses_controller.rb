@@ -38,17 +38,16 @@ class FixedExpensesController < ApplicationController
 
   # PATCH/PUT /fixed_expenses/1 or /fixed_expenses/1.json
   def update
-
     respond_to do |format|
       if @fixed_expense.update_from_dashboard(params: params[:fixed_expense])
         @totals = FixedExpense.total_costs
-          format.html { redirect_to root_path, notice: "Fixed expense was successfully updated." }
-          format.turbo_stream
+        format.html { redirect_to root_path, notice: "Fixed expense was successfully updated." }
+        format.turbo_stream
       else
-          format.html { render :edit, status: :unprocessable_entity }
-          format.json { render json: @fixed_expense.errors, status: :unprocessable_entity }
-        end
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @fixed_expense.errors, status: :unprocessable_entity }
       end
+    end
   end
 
   # DELETE /fixed_expenses/1 or /fixed_expenses/1.json
