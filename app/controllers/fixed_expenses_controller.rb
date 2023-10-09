@@ -57,7 +57,6 @@ class FixedExpensesController < ApplicationController
     @fixed_expenses = FixedExpense.get_ordered
     respond_to do |format|
       format.html { redirect_to fixed_expenses_path, notice: "Fixed expense was successfully destroyed." }
-      # format.turbo_stream { render turbo_stream: turbo_stream.remove(@fixed_expense) }
       format.turbo_stream
     end
   end

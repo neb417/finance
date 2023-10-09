@@ -22,11 +22,11 @@ RSpec.describe FixedExpensesController, type: :routing do
       expect(post: "/fixed_expenses").to route_to("fixed_expenses#create")
     end
 
-    it "routes to #index via PUT" do
+    it "routes to #update via PUT" do
       expect(put: "/fixed_expenses/1").to route_to("fixed_expenses#update", id: "1")
     end
 
-    it "routes to #index via PATCH" do
+    it "routes to #update via PATCH" do
       expect(patch: "/fixed_expenses/1").to route_to("fixed_expenses#update", id: "1")
     end
 
