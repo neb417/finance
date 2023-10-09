@@ -83,7 +83,7 @@ RSpec.describe "/fixed_expenses", type: :request do
     end
   end
 
-  describe "PATCH /index" do
+  describe "PATCH /update" do
     context "with valid parameters" do
       let(:new_attributes) {
         skip("Add a hash of attributes valid for your model")

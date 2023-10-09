@@ -22,11 +22,11 @@ RSpec.describe IncomesController, type: :routing do
       expect(post: "/incomes").to route_to("incomes#create")
     end
 
-    it "routes to #index via PUT" do
+    it "routes to #update via PUT" do
       expect(put: "/incomes/1").to route_to("incomes#update", id: "1")
     end
 
-    it "routes to #index via PATCH" do
+    it "routes to #update via PATCH" do
       expect(patch: "/incomes/1").to route_to("incomes#update", id: "1")
     end
 
