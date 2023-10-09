@@ -54,9 +54,12 @@ class FixedExpensesController < ApplicationController
   # DELETE /fixed_expenses/1 or /fixed_expenses/1.json
   def destroy
     @fixed_expense.destroy
+    @totals = FixedExpense.total_costs
+    @fixed_expenses = FixedExpense.get_ordered
     respond_to do |format|
       format.html { redirect_to fixed_expenses_path, notice: "Fixed expense was successfully destroyed." }
-      format.turbo_stream { render turbo_stream: turbo_stream.remove(@fixed_expense) }
+      # format.turbo_stream { render turbo_stream: turbo_stream.remove(@fixed_expense) }
+      format.turbo_stream
     end
   end
 
