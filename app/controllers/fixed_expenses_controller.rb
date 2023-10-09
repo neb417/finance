@@ -25,7 +25,10 @@ class FixedExpensesController < ApplicationController
 
     respond_to do |format|
       if @fixed_expense.save
+        @totals = FixedExpense.total_costs
+        @fixed_expenses = FixedExpense.get_ordered
         format.html { redirect_to root_path, notice: "Fixed expense was successfully created." }
+        format.turbo_stream
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @fixed_expense.errors, status: :unprocessable_entity }
