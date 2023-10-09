@@ -1,0 +1,17 @@
+<div class="grid grid-cols-6">
+    <div class="px-5">
+      <strong>Total</strong>
+    </div>
+
+    <div>
+      <%= render partial: "shared/total", locals: { total: @totals.total_annual_cost } %>
+    </div>
+
+    <div>
+      <%= render partial: "shared/total", locals: { total: @totals.total_monthly_cost } %>
+    </div>
+
+    <div>
+      <%= render partial: "shared/total", locals: { total: @totals.total_bi_weekly_cost } %>
+    </div>
+</div>

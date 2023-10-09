@@ -1,0 +1,7 @@
+<%= turbo_stream.replace "fixed_expenses" do %>
+  <%= render @fixed_expenses %>
+<% end %>
+
+<%= turbo_stream.replace "total_costs" do %>
+  <%= render partial: "shared/total_costs", locals: { totals: @totals } %>
+<% end %>
