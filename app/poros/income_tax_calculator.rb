@@ -1,11 +1,11 @@
 class IncomeTaxCalculator
   attr_reader :income,
-              :annual_income,
-              :federal_tax,
-              :net_after_fed_tax,
-              :state_tax,
-              :total_net_income,
-              :bi_weekly_net_income
+    :annual_income,
+    :federal_tax,
+    :net_after_fed_tax,
+    :state_tax,
+    :total_net_income,
+    :bi_weekly_net_income
 
   def initialize(income:)
     @income = income
@@ -14,7 +14,7 @@ class IncomeTaxCalculator
     @net_after_fed_tax = nil
     @state_tax = nil
     @total_net_income = nil
-    @bi_weekly_net_income =  nil
+    @bi_weekly_net_income = nil
   end
 
   def calculate_taxes
