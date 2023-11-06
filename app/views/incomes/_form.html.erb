@@ -13,7 +13,13 @@
     <div class="flex-container">
       <div class="my-5 px-5">
         <%= form.label :income_type %><br>
-        <%= form.select :income_type, [["Hourly", "HR"], ["Salary", "SA"]], { }, {class: "block shadow rounded-md border border-gray-200 px-3 py-2 mt-2 w-full"} %>
+        <% if @income.income_type.nil? %>
+          <%= form.select :income_type, [["Salary", "SA"], ["Hourly", "HR"]], {}, {class: "block shadow rounded-md border border-gray-200 px-3 py-2 mt-2 w-full"} %>
+        <% elsif @income.is_salary? %>
+          <%= form.select :income_type, [["Salary", "SA"]], {}, {class: "block shadow rounded-md border border-gray-200 px-3 py-2 mt-2 w-full"} %>
+        <% else %>
+          <%= form.select :income_type, [["Hourly", "HR"]], {}, {class: "block shadow rounded-md border border-gray-200 px-3 py-2 mt-2 w-full"} %>
+        <% end %>
       </div>
 
       <div class="my-5 px-5">
