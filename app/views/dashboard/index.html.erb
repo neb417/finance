@@ -19,6 +19,10 @@
         <%= turbo_frame_tag :incomes do %>
           <%= render "incomes/index" %>
         <% end %>
+
+        <%= turbo_frame_tag "taxed_incomes" do %>
+          <%= render partial: "shared/taxed_incomes", locals: { salary_taxed: @salary_taxed, hourly_taxed: @hourly_taxed} %>
+        <% end %>
       </div>
     </div>
 
@@ -38,6 +42,12 @@
         <%= turbo_frame_tag "total_costs" do %>
           <%= render partial: "shared/total_costs", locals: { totals: @totals } %>
         <% end %>
+      </div>
+    </div>
+
+    <div class="bg-white shadow">
+      <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+        <%= render "federal_tax_brackets/index" %>
       </div>
     </div>
 

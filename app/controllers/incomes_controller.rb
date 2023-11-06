@@ -38,8 +38,10 @@ class IncomesController < ApplicationController
   def update
     respond_to do |format|
       if @income.update_from_dashboard(params: params)
+        @salary_taxed = Income.tax_on_income(income_type: "Salary")
+        @hourly_taxed = Income.tax_on_income(income_type: "Hourly")
         format.html { redirect_to root_path, notice: "Income was successfully updated." }
-        format.json { render :show, status: :ok, location: @income }
+        format.turbo_stream
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @income.errors, status: :unprocessable_entity }

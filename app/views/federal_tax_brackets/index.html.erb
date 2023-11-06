@@ -9,14 +9,6 @@
   </div>
 
   <div class="min-w-full">
-    <div class="grid grid-cols-6">
-      <% tax_headings = %w[Tier From To Rate Cumulative] %>
-      <% tax_headings.each do |tax_heading| %>
-        <div class="px-5"><strong><%= tax_heading %></strong></div>
-      <% end %>
-    </div>
-    <%= turbo_frame_tag :federal_tax_brackets do %>
-      <%= render @federal_tax_brackets %>
-    <% end %>
+    <%= render "federal_tax_brackets/index" %>
   </div>
 </div>
