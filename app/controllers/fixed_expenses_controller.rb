@@ -27,6 +27,8 @@ class FixedExpensesController < ApplicationController
       if @fixed_expense.save
         @totals = FixedExpense.total_costs
         @fixed_expenses = FixedExpense.get_ordered
+        @salary_taxed = Income.tax_on_income(income_type: "Salary")
+        @hourly_taxed = Income.tax_on_income(income_type: "Hourly")
         format.html { redirect_to root_path, notice: "Fixed expense was successfully created." }
         format.turbo_stream
       else
@@ -41,6 +43,8 @@ class FixedExpensesController < ApplicationController
     respond_to do |format|
       if @fixed_expense.update_from_dashboard(params: params[:fixed_expense])
         @totals = FixedExpense.total_costs
+        @salary_taxed = Income.tax_on_income(income_type: "Salary")
+        @hourly_taxed = Income.tax_on_income(income_type: "Hourly")
         format.html { redirect_to root_path, notice: "Fixed expense was successfully updated." }
         format.turbo_stream
       else
@@ -55,6 +59,8 @@ class FixedExpensesController < ApplicationController
     @fixed_expense.destroy
     @totals = FixedExpense.total_costs
     @fixed_expenses = FixedExpense.get_ordered
+    @salary_taxed = Income.tax_on_income(income_type: "Salary")
+    @hourly_taxed = Income.tax_on_income(income_type: "Hourly")
     respond_to do |format|
       format.html { redirect_to fixed_expenses_path, notice: "Fixed expense was successfully destroyed." }
       format.turbo_stream
