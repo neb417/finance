@@ -11,7 +11,7 @@ RSpec.describe "federal_tax_brackets/show", type: :feature do
   #   ))
   # end
   let!(:fed1) { create(:federal_tax_bracket) }
-  let!(:fed2) { create(:federal_tax_bracket) }
+  let!(:fed2) { create(:federal_tax_bracket, :tier_2) }
 
   it "renders attributes in <p>" do
     visit federal_tax_bracket_path(fed2)
