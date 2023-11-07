@@ -1,0 +1,46 @@
+<%= form_with(model: federal_tax_bracket, class: "contents") do |form| %>
+  <% if federal_tax_bracket.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+      <h2><%= pluralize(federal_tax_bracket.errors.count, "error") %> prohibited this federal_tax_bracket from being saved:</h2>
+
+      <ul>
+        <% federal_tax_bracket.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="flex-container">
+    <div class="my-5">
+      <%= form.label :tier %>
+      <%= form.text_field :tier, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+
+    <div class="my-5">
+      <%= form.label :bottom_range %>
+      <%= form.number_field :bottom_range, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+
+    <div class="my-5">
+      <%= form.label :top_range %>
+      <%= form.number_field :top_range, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+
+    <div class="my-5">
+      <%= form.label :rate %>
+      <%= form.text_field :rate, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+
+    <div class="my-5">
+      <%= form.label :cumulative %>
+      <%= form.number_field :cumulative, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", step: :any %>
+    </div>
+
+    <div class="inline">
+      <%= form.submit class: "rounded-lg py-1 px-4 bg-gray-100 inline-block font-medium" %>
+    </div>
+    <div>
+      <%= link_to "Cancel", fixed_expenses_path, class: "rounded-lg py-1 px-4 bg-gray-100 inline-block font-medium" %>
+    </div>
+  </div>
+<% end %>

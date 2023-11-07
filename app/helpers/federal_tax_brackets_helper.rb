@@ -1,0 +1,2 @@
+module FederalTaxBracketsHelper
+end

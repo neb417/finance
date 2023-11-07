@@ -1,0 +1,9 @@
+<%= turbo_frame_tag dom_id(federal_tax_bracket) do %>
+  <div class="grid grid-cols-6">
+    <% attributes = federal_tax_bracket.tier, humanized_money_with_symbol(federal_tax_bracket.bottom_range), humanized_money_with_symbol(federal_tax_bracket.top_range), number_to_percentage(federal_tax_bracket.rate * 100, precision: 1), humanized_money_with_symbol(federal_tax_bracket.cumulative) %>
+    <% attributes.each do |attribute| %>
+      <div class="px-5 py-1"><%= attribute %></div>
+    <% end %>
+    <div class="px-5 py-1"><%= link_to 'Edit', edit_federal_tax_bracket_path(federal_tax_bracket), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %></div>
+  </div>
+<% end %>

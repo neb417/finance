@@ -39,4 +39,23 @@ class Income < ApplicationRecord
       false
     end
   end
+
+  def self.order_by_type
+    Income.all.order(income_type: :desc)
+  end
+
+  def is_hourly?
+    income_type == "Hourly"
+  end
+
+  def is_salary?
+    income_type == "Salary"
+  end
+
+  def self.tax_on_income(income_type:)
+    income = Income.find_by(income_type: income_type)
+    taxable_income = IncomeTaxCalculator.new(income: income)
+    taxable_income.calculate_taxes
+    taxable_income
+  end
 end
