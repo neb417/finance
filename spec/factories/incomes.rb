@@ -14,9 +14,27 @@
 #
 FactoryBot.define do
   factory :income do
-    income_type { "MyString" }
-    rate { 1 }
-    hours { 1 }
-    weekly_income { 1 }
+    income_type { "Salary" }
+    rate_cents { 5_000_000 }
+    hours { 40 }
+    weekly_income_cents { 5_000_000 / 52 }
+
+    trait :hourly do
+      income_type { "Hourly" }
+      rate_cents { 300_000 }
+      hours { 40 }
+      weekly_income_cents { 300_000 * 40 }
+    end
+
+    # trait :with_all_types do
+    #   after :create do |_record|
+    #     create(:income, :hourly)
+    #   end
+    # end
+
+    # to_create do |instance|
+    #   instance.id = Income.find_or_create_by(income_type: instance.income_type).id
+    #   instance.reload
+    # end
   end
 end
