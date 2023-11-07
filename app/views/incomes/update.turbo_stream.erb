@@ -3,3 +3,11 @@
 <%= turbo_stream.replace "taxed_incomes" do %>
   <%= render partial: "shared/taxed_incomes", locals: { salary_taxed: @salary_taxed, hourly_taxed: @hourly_taxed } %>
 <% end %>
+
+<%= turbo_stream.replace "salary_budget" do %>
+  <%= render partial: "budget/salary_budget", locals: {totals: @totals, income: @salary_taxed} %>
+<% end %>
+
+<%= turbo_stream.replace "hourly_budget" do %>
+  <%= render partial: "budget/hourly_budget", locals: {totals: @totals, income: @hourly_taxed} %>
+<% end %>
