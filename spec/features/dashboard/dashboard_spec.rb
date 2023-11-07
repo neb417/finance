@@ -1,12 +1,12 @@
 require "rails_helper"
 
 RSpec.describe "Dashboard", type: :feature do
-  let!(:income1) { create(:income)}
-  let!(:income2) { create(:income, :hourly)}
-  let!(:fed1) { create(:federal_tax_bracket)}
-  let!(:fed2) { create(:federal_tax_bracket, :tier_2)}
-  let!(:fed3) { create(:federal_tax_bracket, :tier_3)}
-  let!(:fixed_expenses) { create_list(:fixed_expense, 2)}
+  let!(:income1) { create(:income) }
+  let!(:income2) { create(:income, :hourly) }
+  let!(:fed1) { create(:federal_tax_bracket) }
+  let!(:fed2) { create(:federal_tax_bracket, :tier_2) }
+  let!(:fed3) { create(:federal_tax_bracket, :tier_3) }
+  let!(:fixed_expenses) { create_list(:fixed_expense, 2) }
 
   describe "GET /index" do
     it "routes to root path" do

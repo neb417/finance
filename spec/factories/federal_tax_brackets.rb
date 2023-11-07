@@ -16,14 +16,14 @@
 #
 FactoryBot.define do
   factory :federal_tax_bracket do
-    tier { 'Tier 1' }
+    tier { "Tier 1" }
     bottom_range_cents { 0 }
     top_range_cents { 100000 }
     rate { 0.1 }
     cumulative_cents { 0 }
 
     trait :tier_2 do
-      tier { 'Tier 2' }
+      tier { "Tier 2" }
       bottom_range_cents { 1000100 }
       top_range_cents { 10000000 }
       rate { 0.15 }
@@ -31,7 +31,7 @@ FactoryBot.define do
     end
 
     trait :tier_3 do
-      tier { 'Tier 2' }
+      tier { "Tier 2" }
       bottom_range_cents { 10000100 }
       top_range_cents { 50000000 }
       rate { 0.25 }
