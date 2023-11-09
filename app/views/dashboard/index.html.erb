@@ -1,7 +1,7 @@
 <div class="min-h-full">
   <header class="bg-white shadow">
     <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-        <h1 class="text-3xl font-bold tracking-tight text-gray-900">Dashboard</h1>
+        <h1 class="text-3xl font-bold tracking-tight text-gray-900">Budget Calculator</h1>
     </div>
   </header>
 
@@ -10,7 +10,7 @@
     <div class="bg-white shadow">
       <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
         <div class="mt-5">
-          <h3 class="text-2xl font-bold tracking-tight text-gray-900">Budget</h3>
+          <h3 class="text-2xl font-bold tracking-tight text-gray-900">Final Budget</h3>
         </div>
 
         <%= turbo_frame_tag "salary_budget" do %>
@@ -32,13 +32,17 @@
           </div>
         <% end %>
 
-        <%= turbo_frame_tag :incomes do %>
-          <%= render "incomes/index" %>
-        <% end %>
+        <div class="pt-4">
+          <%= turbo_frame_tag :incomes do %>
+            <%= render "incomes/index" %>
+          <% end %>
+        </div>
 
-        <%= turbo_frame_tag "taxed_incomes" do %>
-          <%= render partial: "shared/taxed_incomes", locals: { salary_taxed: @salary_taxed, hourly_taxed: @hourly_taxed} %>
-        <% end %>
+        <div class="pt-4">
+          <%= turbo_frame_tag "taxed_incomes" do %>
+            <%= render partial: "shared/taxed_incomes", locals: { salary_taxed: @salary_taxed, hourly_taxed: @hourly_taxed} %>
+          <% end %>
+        </div>
       </div>
     </div>
 
@@ -60,12 +64,5 @@
         <% end %>
       </div>
     </div>
-
-    <div class="bg-white shadow">
-      <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-        <%= render "federal_tax_brackets/index" %>
-      </div>
-    </div>
-
   </main>
 </div>

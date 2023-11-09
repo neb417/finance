@@ -1,8 +1,8 @@
-<strong>Income After Taxes</strong>
+<strong>Gross Income</strong>
 <div class="grid grid-cols-6">
-   <% fixed_headings = ["Income Type", "Federal Tax Paid", "State Tax Paid", "Annual Income", "Bi-weekly Income"] %>
+   <% fixed_headings = ["Income Type", "Federal Tax", "State Tax", "Annual", "Bi-weekly"] %>
   <% fixed_headings.each do |fixed_heading| %>
-    <div class="px-5 pt-4"><strong><%= fixed_heading %></strong></div>
+    <div class="px-5"><strong><%= fixed_heading %></strong></div>
   <% end %>
 </div>
 

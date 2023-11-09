@@ -2,8 +2,8 @@
   <div class="grid grid-cols-6">
     <% attributes = [income.income_type, humanized_money_with_symbol(income.rate), income.hours, humanized_money_with_symbol(income.weekly_income)] %>
     <% attributes.each do |attribute| %>
-      <div class="px-5 py-1"><%= attribute %></div>
+      <div class="px-5"><%= attribute %></div>
     <% end %>
-    <div class="px-5 py-1"><%= link_to "Edit", edit_income_path(income), class:"rounded-lg py-1 px-4 bg-gray-100 inline-block font-medium" %></div>
+    <div class="px-5"><%= link_to "Edit", edit_income_path(income), class:"rounded-lg px-2 bg-gray-100 inline-block font-medium" %></div>
   </div>
 <% end %>
