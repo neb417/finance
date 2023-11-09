@@ -2,9 +2,9 @@
   <div class="grid grid-cols-6">
     <% attributes = [fixed_expense.expense_name, humanized_money_with_symbol(fixed_expense.annual_cost), humanized_money_with_symbol(fixed_expense.monthly_cost), humanized_money_with_symbol(fixed_expense.bi_weekly_cost)] %>
     <% attributes.each do |attribute| %>
-      <div class="px-5 py-1"><%= attribute %></div>
+      <div class="px-5"><%= attribute %></div>
     <% end %>
-    <div class="px-5 py-1"><%= link_to "Edit", edit_fixed_expense_path(fixed_expense), class:"rounded-lg py-1 px-4 bg-gray-100 inline-block font-medium" %></div>
-    <div class="py-1"><%= button_to "Delete", fixed_expense_path(fixed_expense), method: :delete, class:"rounded-lg py-1 px-4 bg-gray-100 inline-block font-medium" %></div>
+    <div class="px-5"><%= link_to "Edit", edit_fixed_expense_path(fixed_expense), class:"rounded-lg px-2 bg-gray-100 inline-block font-medium" %></div>
+    <div class=""><%= button_to "Delete", fixed_expense_path(fixed_expense), method: :delete, class:"rounded-lg px-2 bg-gray-100 inline-block font-medium" %></div>
   </div>
 <% end %>
