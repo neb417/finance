@@ -60,6 +60,37 @@ class IncomesController < ApplicationController
     end
   end
 
+  def income_switch
+    totals = FixedExpense.total_costs
+    if params[:enabled] == "0"
+      salary = Income.tax_on_income(income_type: "Salary")
+
+      respond_to do |format|
+        format.turbo_stream {
+          render turbo_stream: turbo_stream.replace("hourly_budget",
+            partial: "budget/salary_budget",
+            locals: {
+              totals: totals,
+              income: salary
+            })
+        }
+      end
+    else
+      hourly = Income.tax_on_income(income_type: "Hourly")
+
+      respond_to do |format|
+        format.turbo_stream {
+          render turbo_stream: turbo_stream.replace("salary_budget",
+            partial: "budget/hourly_budget",
+            locals: {
+              totals: totals,
+              income: hourly
+            })
+        }
+      end
+    end
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
