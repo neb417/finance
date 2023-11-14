@@ -1,5 +1,7 @@
-<div id="salary_budget" class="py-4">
-  <strong>Salary</strong>
-  <%= render partial: "budget/budget_headings" %>
-  <%= render partial: "shared/budget", locals: {totals: totals, income: income} %>
-</div>
+<%= turbo_frame_tag "salary_budget" do %>
+  <div id="salary_budget" class="py-4">
+    <strong>Salary</strong>
+    <%= render partial: "budget/budget_headings" %>
+    <%= render partial: "shared/budget", locals: {totals: totals, income: income} %>
+  </div>
+<% end %>
