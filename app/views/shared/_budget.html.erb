@@ -1,4 +1,4 @@
-<div class="grid grid-cols-6">
+<div class="grid grid-cols-5">
   <div>Daily</div>
   <%= render partial: "shared/total", locals: { total: totals.total_annual_cost / 365 } %>
   <div>0</div>
@@ -8,7 +8,7 @@
   </div>
 </div>
 
-<div class="grid grid-cols-6">
+<div class="grid grid-cols-5">
   <div>Weekly</div>
   <%= render partial: "shared/total", locals: { total: totals.total_bi_weekly_cost / 2 } %>
   <div>0</div>
@@ -18,7 +18,7 @@
   </div>
 </div>
 
-<div class="grid grid-cols-6">
+<div class="grid grid-cols-5">
   <div>Bi-Weekly</div>
   <%= render partial: "shared/total", locals: { total: totals.total_bi_weekly_cost } %>
   <div>0</div>
@@ -28,7 +28,7 @@
   </div>
 </div>
 
-<div class="grid grid-cols-6">
+<div class="grid grid-cols-5">
   <div>Monthly</div>
   <%= render partial: "shared/total", locals: { total: totals.total_monthly_cost } %>
   <div>0</div>
@@ -38,7 +38,7 @@
   </div>
 </div>
 
-<div class="grid grid-cols-6">
+<div class="grid grid-cols-5">
   <div>Quarterly</div>
   <%= render partial: "shared/total", locals: { total: totals.total_annual_cost / 4 } %>
   <div>0</div>
@@ -48,7 +48,7 @@
   </div>
 </div>
 
-<div class="grid grid-cols-6">
+<div class="grid grid-cols-5">
   <div>Biannual</div>
   <%= render partial: "shared/total", locals: { total: totals.total_annual_cost / 4 } %>
   <div>0</div>
@@ -58,7 +58,7 @@
   </div>
 </div>
 
-<div class="grid grid-cols-6">
+<div class="grid grid-cols-5">
   <div>Annually</div>
   <%= render partial: "shared/total", locals: { total: totals.total_annual_cost } %>
 

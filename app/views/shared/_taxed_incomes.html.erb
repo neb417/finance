@@ -1,17 +1,17 @@
 <strong>Gross Income</strong>
-<div class="grid grid-cols-6">
+<div class="grid grid-cols-5">
    <% fixed_headings = ["Income Type", "Federal Tax", "State Tax", "Annual", "Bi-weekly"] %>
   <% fixed_headings.each do |fixed_heading| %>
     <div class="px-5"><strong><%= fixed_heading %></strong></div>
   <% end %>
 </div>
 
-<div class="grid grid-cols-6">
+<div class="grid grid-cols-5">
   <div class="px-5">Salary</div>
   <%= render partial: "shared/taxed_income", locals: { taxed_income: salary_taxed} %>
 </div>
 
-<div class="grid grid-cols-6">
+<div class="grid grid-cols-5">
   <div class="px-5">Hourly</div>
   <%= render partial: "shared/taxed_income", locals: { taxed_income: hourly_taxed} %>
 </div>

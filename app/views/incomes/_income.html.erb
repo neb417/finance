@@ -1,5 +1,5 @@
 <%= turbo_frame_tag dom_id(income) do %>
-  <div class="grid grid-cols-6 pb-1">
+  <div class="grid grid-cols-5 pb-1">
     <% attributes = [income.income_type, humanized_money_with_symbol(income.rate), income.hours, humanized_money_with_symbol(income.weekly_income)] %>
     <% attributes.each do |attribute| %>
       <div class="px-5"><%= attribute %></div>
