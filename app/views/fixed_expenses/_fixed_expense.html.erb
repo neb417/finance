@@ -1,10 +1,12 @@
 <%= turbo_frame_tag dom_id(fixed_expense)  do %>
-  <div class="grid grid-cols-6 pb-1">
+  <div class="grid grid-cols-5 pb-1">
     <% attributes = [fixed_expense.expense_name, humanized_money_with_symbol(fixed_expense.annual_cost), humanized_money_with_symbol(fixed_expense.monthly_cost), humanized_money_with_symbol(fixed_expense.bi_weekly_cost)] %>
     <% attributes.each do |attribute| %>
       <div class="px-5"><%= attribute %></div>
     <% end %>
-    <div class=""><%= link_to "Edit", edit_fixed_expense_path(fixed_expense), class:"btn btn-primary" %></div>
-    <div class=""><%= button_to "Delete", fixed_expense_path(fixed_expense), method: :delete, class:"btn btn-danger" %></div>
+    <div class="flex">
+      <%= link_to "Edit", edit_fixed_expense_path(fixed_expense), class:"btn btn-primary" %>
+      <%= button_to "Delete", fixed_expense_path(fixed_expense), method: :delete, class:"btn btn-danger ml-1" %>
+    </div>
   </div>
 <% end %>
