@@ -4,18 +4,38 @@
 
 @layer components {
   .btn-primary {
-    @apply py-2 px-4 bg-blue-200;
+    @apply rounded-lg px-4 bg-purple-800 inline-block font-medium text-white;
+  }
+
+  .btn-danger {
+    @apply rounded-lg px-4 bg-red-600 inline-block font-medium text-white;
+  }
+
+  h1 {
+    @apply text-3xl font-bold tracking-tight text-gray-800
+  }
+
+  h3 {
+    @apply text-2xl font-bold tracking-tight text-gray-800;
   }
 
   .flex-container {
-      display: inline-flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: space-evenly;
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
   }
 
   .flex-item {
     order: 5;
+  }
+
+  .primary-card {
+    background-color: white;
+    box-shadow: #2E2F30;
+    margin-bottom: 0.5rem;
+    border-radius: 0.5rem;
+    color: #2b2b2b;
   }
 }
 

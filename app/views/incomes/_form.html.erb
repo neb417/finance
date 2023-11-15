@@ -14,35 +14,30 @@
       <div class="my-5 px-5">
         <%= form.label :income_type %><br>
         <% if @income.income_type.nil? %>
-          <%= form.select :income_type, [["Salary", "SA"], ["Hourly", "HR"]], {}, {class: "block shadow rounded-md border border-gray-200 px-3 py-2 mt-2 w-full"} %>
+          <%= form.select :income_type, [["Salary", "SA"], ["Hourly", "HR"]], {}, {class: "block shadow rounded-md border border-gray-200 px-3 py-2 w-full"} %>
         <% elsif @income.is_salary? %>
-          <%= form.select :income_type, [["Salary", "SA"]], {}, {class: "block shadow rounded-md border border-gray-200 px-3 py-2 mt-2 w-full"} %>
+          <%= form.select :income_type, [["Salary", "SA"]], {}, {class: "block shadow rounded-md border border-gray-200 px-3 py-2 w-full"} %>
         <% else %>
-          <%= form.select :income_type, [["Hourly", "HR"]], {}, {class: "block shadow rounded-md border border-gray-200 px-3 py-2 mt-2 w-full"} %>
+          <%= form.select :income_type, [["Hourly", "HR"]], {}, {class: "block shadow rounded-md border border-gray-200 px-3 py-2 w-full"} %>
         <% end %>
       </div>
 
       <div class="my-5 px-5">
         <%= form.label :rate %>
-        <%= form.number_field :rate, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+        <%= form.number_field :rate, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 w-full" %>
       </div>
 
       <div class="my-5 px-5">
         <%= form.label :hours %>
-        <%= form.number_field :hours, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-      </div>
-
-      <div class="my-5 px-5">
-        <%= form.label :weekly_income %>
-        <%= form.number_field :weekly_income, readonly: true, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+        <%= form.number_field :hours, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 w-full" %>
       </div>
 
     <div class="my-5 px-5">
-      <div class="py-3">
-        <%= form.submit class: "rounded-lg py-1 px-4 bg-gray-100 inline-block font-medium" %>
+      <div class="py-2">
+        <%= form.submit class: "rounded-lg px-2 bg-gray-100 inline-block font-medium" %>
       </div>
       <div>
-        <%= link_to "Cancel", root_path, class: "rounded-lg py-1 px-4 bg-gray-100 inline-block font-medium" %>
+        <%= link_to "Cancel", root_path, class: "rounded-lg px-2 bg-gray-100 inline-block font-medium" %>
       </div>
     </div>
   </div>

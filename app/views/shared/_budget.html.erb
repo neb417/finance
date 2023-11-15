@@ -4,7 +4,7 @@
   <div>0</div>
   <div>0</div>
   <div>
-    <%= humanized_money_with_symbol((income.total_net_income.fractional / 100) / 365 - totals.total_annual_cost / 365) %>
+    <%= humanized_money_with_symbol((income.daily_income.fractional / 100) - totals.total_annual_cost / 365) %>
   </div>
 </div>
 
@@ -14,7 +14,7 @@
   <div>0</div>
   <div>0</div>
   <div>
-    <%= humanized_money_with_symbol((income.bi_weekly_net_income.fractional / 100) / 2 - totals.total_bi_weekly_cost / 2) %>
+    <%= humanized_money_with_symbol((income.weekly_income.fractional / 100) - totals.total_bi_weekly_cost / 2) %>
   </div>
 </div>
 
@@ -34,7 +34,7 @@
   <div>0</div>
   <div>0</div>
   <div>
-    <%= humanized_money_with_symbol((income.total_net_income.fractional / 100) / 12 - totals.total_monthly_cost) %>
+    <%= humanized_money_with_symbol((income.monthly_income.fractional / 100) - totals.total_monthly_cost) %>
   </div>
 </div>
 
@@ -44,7 +44,17 @@
   <div>0</div>
   <div>0</div>
   <div>
-    <%= humanized_money_with_symbol((income.total_net_income.fractional / 100.0) / 4 - totals.total_annual_cost / 4) %>
+    <%= humanized_money_with_symbol((income.quarterly_income.fractional / 100.0) - totals.total_annual_cost / 4) %>
+  </div>
+</div>
+
+<div class="grid grid-cols-6">
+  <div>Biannual</div>
+  <%= render partial: "shared/total", locals: { total: totals.total_annual_cost / 4 } %>
+  <div>0</div>
+  <div>0</div>
+  <div>
+    <%= humanized_money_with_symbol((income.biannual_income.fractional / 100.0) - totals.total_annual_cost / 4) %>
   </div>
 </div>
 
