@@ -5,9 +5,9 @@
 <% end %>
 
 <%= turbo_stream.replace "salary_budget" do %>
-  <%= render partial: "budget/salary_budget", locals: {totals: @totals, income: @salary_taxed} %>
+  <%= render partial: "budget/salary_budget", locals: {total_annual_cost: @total_annual_cost, total_monthly_cost: @total_monthly_cost, total_bi_weekly_cost: @total_bi_weekly_cost, income: @salary_taxed} %>
 <% end %>
 
 <%= turbo_stream.replace "hourly_budget" do %>
-  <%= render partial: "budget/hourly_budget", locals: {totals: @totals, income: @hourly_taxed} %>
+  <%= render partial: "budget/hourly_budget", locals: {total_annual_cost: @total_annual_cost, total_monthly_cost: @total_monthly_cost, total_bi_weekly_cost: @total_bi_weekly_cost, income: @hourly_taxed} %>
 <% end %>

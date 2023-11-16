@@ -40,7 +40,10 @@ class IncomesController < ApplicationController
       if @income.update_from_dashboard(params: params)
         @salary_taxed = Income.tax_on_income(income_type: "Salary")
         @hourly_taxed = Income.tax_on_income(income_type: "Hourly")
-        @totals = FixedExpense.total_costs
+        @fixed_expenses = FixedExpense.get_ordered
+        @total_annual_cost = FixedExpense.total_annual_cost
+        @total_monthly_cost = FixedExpense.total_monthly_cost
+        @total_bi_weekly_cost = FixedExpense.total_bi_weekly_cost
         format.html { redirect_to root_path, notice: "Income was successfully updated." }
         format.turbo_stream
       else

@@ -25,7 +25,10 @@ class FixedExpensesController < ApplicationController
 
     respond_to do |format|
       if @fixed_expense.save
-        @totals = FixedExpense.total_costs
+        @fixed_expenses = FixedExpense.get_ordered
+        @total_annual_cost = FixedExpense.total_annual_cost
+        @total_monthly_cost = FixedExpense.total_monthly_cost
+        @total_bi_weekly_cost = FixedExpense.total_bi_weekly_cost
         @fixed_expenses = FixedExpense.get_ordered
         @salary_taxed = Income.tax_on_income(income_type: "Salary")
         @hourly_taxed = Income.tax_on_income(income_type: "Hourly")
@@ -42,7 +45,9 @@ class FixedExpensesController < ApplicationController
   def update
     respond_to do |format|
       if @fixed_expense.update_from_dashboard(params: params[:fixed_expense])
-        @totals = FixedExpense.total_costs
+        @total_annual_cost = FixedExpense.total_annual_cost
+        @total_monthly_cost = FixedExpense.total_monthly_cost
+        @total_bi_weekly_cost = FixedExpense.total_bi_weekly_cost
         @salary_taxed = Income.tax_on_income(income_type: "Salary")
         @hourly_taxed = Income.tax_on_income(income_type: "Hourly")
         format.html { redirect_to root_path, notice: "Fixed expense was successfully updated." }
@@ -57,7 +62,9 @@ class FixedExpensesController < ApplicationController
   # DELETE /fixed_expenses/1 or /fixed_expenses/1.json
   def destroy
     @fixed_expense.destroy
-    @totals = FixedExpense.total_costs
+    @total_annual_cost = FixedExpense.total_annual_cost
+    @total_monthly_cost = FixedExpense.total_monthly_cost
+    @total_bi_weekly_cost = FixedExpense.total_bi_weekly_cost
     @fixed_expenses = FixedExpense.get_ordered
     @salary_taxed = Income.tax_on_income(income_type: "Salary")
     @hourly_taxed = Income.tax_on_income(income_type: "Hourly")
