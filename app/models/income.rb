@@ -54,8 +54,6 @@ class Income < ApplicationRecord
 
   def self.tax_on_income(income_type:)
     income = Income.find_by(income_type: income_type)
-    taxable_income = IncomeTaxCalculator.new(income: income)
-    taxable_income.calculate_taxes
-    taxable_income
+    IncomeTaxCalculatorService.new(income: income)
   end
 end

@@ -61,31 +61,20 @@ class IncomesController < ApplicationController
   end
 
   def income_switch
-    totals = FixedExpense.total_costs
     if params[:enabled] == "0"
-      salary = Income.tax_on_income(income_type: "Salary")
-
       respond_to do |format|
         format.turbo_stream {
           render turbo_stream: turbo_stream.replace("hourly_budget",
             partial: "budget/salary_budget",
-            locals: {
-              totals: totals,
-              income: salary
-            })
+            locals: build_locals(salary))
         }
       end
     else
-      hourly = Income.tax_on_income(income_type: "Hourly")
-
       respond_to do |format|
         format.turbo_stream {
           render turbo_stream: turbo_stream.replace("salary_budget",
             partial: "budget/hourly_budget",
-            locals: {
-              totals: totals,
-              income: hourly
-            })
+            locals: build_locals(hourly))
         }
       end
     end
@@ -101,5 +90,24 @@ class IncomesController < ApplicationController
   # Only allow a list of trusted parameters through.
   def income_params
     params.require(:income).permit(:income_type, :rate, :hours, :weekly_income)
+  end
+
+  def build_locals(income)
+    income_fixed_expense = IncomeFixedExpenseService.new
+
+    {
+      total_annual_cost: income_fixed_expense.total_annual_cost,
+      total_monthly_cost: income_fixed_expense.total_monthly_cost,
+      total_bi_weekly_cost: income_fixed_expense.total_bi_weekly_cost,
+      income: income
+    }
+  end
+
+  def hourly
+    Income.tax_on_income(income_type: "Hourly")
+  end
+
+  def salary
+    Income.tax_on_income(income_type: "Salary")
   end
 end
