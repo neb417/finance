@@ -51,9 +51,4 @@ class Income < ApplicationRecord
   def is_salary?
     income_type == "Salary"
   end
-
-  def self.tax_on_income(income_type:)
-    income = Income.find_by(income_type: income_type)
-    IncomeTaxCalculatorService.new(income: income)
-  end
 end

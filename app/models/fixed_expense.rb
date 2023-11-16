@@ -64,18 +64,6 @@ class FixedExpense < ApplicationRecord
     end
   end
 
-  def self.total_bi_weekly_cost
-    Money.new(sum(&:bi_weekly_cost_cents))
-  end
-
-  def self.total_monthly_cost
-    Money.new(sum(&:monthly_cost_cents))
-  end
-
-  def self.total_annual_cost
-    Money.new(sum(&:annual_cost_cents))
-  end
-
   def self.get_ordered
     all.order(annual_cost_cents: :desc)
   end

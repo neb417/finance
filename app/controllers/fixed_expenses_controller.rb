@@ -1,4 +1,6 @@
 class FixedExpensesController < ApplicationController
+  include TotalCost
+  include TaxedIncome
   before_action :set_fixed_expense, only: %i[show edit update destroy]
 
   # GET /fixed_expenses or /fixed_expenses.json
@@ -26,12 +28,8 @@ class FixedExpensesController < ApplicationController
     respond_to do |format|
       if @fixed_expense.save
         @fixed_expenses = FixedExpense.get_ordered
-        @total_annual_cost = FixedExpense.total_annual_cost
-        @total_monthly_cost = FixedExpense.total_monthly_cost
-        @total_bi_weekly_cost = FixedExpense.total_bi_weekly_cost
-        @fixed_expenses = FixedExpense.get_ordered
-        @salary_taxed = Income.tax_on_income(income_type: "Salary")
-        @hourly_taxed = Income.tax_on_income(income_type: "Hourly")
+        build_taxed_income_vars!
+        build_total_cost_vars!
         format.html { redirect_to root_path, notice: "Fixed expense was successfully created." }
         format.turbo_stream
       else
@@ -45,11 +43,8 @@ class FixedExpensesController < ApplicationController
   def update
     respond_to do |format|
       if @fixed_expense.update_from_dashboard(params: params[:fixed_expense])
-        @total_annual_cost = FixedExpense.total_annual_cost
-        @total_monthly_cost = FixedExpense.total_monthly_cost
-        @total_bi_weekly_cost = FixedExpense.total_bi_weekly_cost
-        @salary_taxed = Income.tax_on_income(income_type: "Salary")
-        @hourly_taxed = Income.tax_on_income(income_type: "Hourly")
+        build_taxed_income_vars!
+        build_total_cost_vars!
         format.html { redirect_to root_path, notice: "Fixed expense was successfully updated." }
         format.turbo_stream
       else
@@ -62,12 +57,9 @@ class FixedExpensesController < ApplicationController
   # DELETE /fixed_expenses/1 or /fixed_expenses/1.json
   def destroy
     @fixed_expense.destroy
-    @total_annual_cost = FixedExpense.total_annual_cost
-    @total_monthly_cost = FixedExpense.total_monthly_cost
-    @total_bi_weekly_cost = FixedExpense.total_bi_weekly_cost
+    build_taxed_income_vars!
+    build_total_cost_vars!
     @fixed_expenses = FixedExpense.get_ordered
-    @salary_taxed = Income.tax_on_income(income_type: "Salary")
-    @hourly_taxed = Income.tax_on_income(income_type: "Hourly")
     respond_to do |format|
       format.html { redirect_to fixed_expenses_path, notice: "Fixed expense was successfully destroyed." }
       format.turbo_stream
