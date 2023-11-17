@@ -1,6 +1,7 @@
 class IncomesController < ApplicationController
+  include DashboardBuilder
   include TotalCost
-  include TaxedIncome
+
   before_action :set_income, only: %i[show edit update destroy]
 
   # GET /incomes or /incomes.json
@@ -40,9 +41,7 @@ class IncomesController < ApplicationController
   def update
     respond_to do |format|
       if @income.update_from_dashboard(params: params)
-        @fixed_expenses = FixedExpense.get_ordered
-        build_taxed_income_vars!
-        build_total_cost_vars!
+        build_dashboard_variables!
         format.html { redirect_to root_path, notice: "Income was successfully updated." }
         format.turbo_stream
       else

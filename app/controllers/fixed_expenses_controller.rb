@@ -1,6 +1,6 @@
 class FixedExpensesController < ApplicationController
-  include TotalCost
-  include TaxedIncome
+  include DashboardBuilder
+
   before_action :set_fixed_expense, only: %i[show edit update destroy]
 
   # GET /fixed_expenses or /fixed_expenses.json
@@ -27,9 +27,7 @@ class FixedExpensesController < ApplicationController
 
     respond_to do |format|
       if @fixed_expense.save
-        @fixed_expenses = FixedExpense.get_ordered
-        build_taxed_income_vars!
-        build_total_cost_vars!
+        build_dashboard_variables!
         format.html { redirect_to root_path, notice: "Fixed expense was successfully created." }
         format.turbo_stream
       else
@@ -43,8 +41,7 @@ class FixedExpensesController < ApplicationController
   def update
     respond_to do |format|
       if @fixed_expense.update_from_dashboard(params: params[:fixed_expense])
-        build_taxed_income_vars!
-        build_total_cost_vars!
+        build_dashboard_variables!
         format.html { redirect_to root_path, notice: "Fixed expense was successfully updated." }
         format.turbo_stream
       else
@@ -57,8 +54,7 @@ class FixedExpensesController < ApplicationController
   # DELETE /fixed_expenses/1 or /fixed_expenses/1.json
   def destroy
     @fixed_expense.destroy
-    build_taxed_income_vars!
-    build_total_cost_vars!
+    build_dashboard_variables!
     @fixed_expenses = FixedExpense.get_ordered
     respond_to do |format|
       format.html { redirect_to fixed_expenses_path, notice: "Fixed expense was successfully destroyed." }

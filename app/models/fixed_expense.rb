@@ -18,6 +18,8 @@ class FixedExpense < ApplicationRecord
   monetize :monthly_cost_cents
   monetize :bi_weekly_cost_cents
 
+  scope :get_ordered, -> { order(annual_cost_cents: :desc) }
+
   def self.new_from_dashboard(params:)
     expense = params[:fixed_expense]
     amount = (expense[:amount].to_f * 100).to_i
@@ -62,9 +64,5 @@ class FixedExpense < ApplicationRecord
     else
       false
     end
-  end
-
-  def self.get_ordered
-    all.order(annual_cost_cents: :desc)
   end
 end

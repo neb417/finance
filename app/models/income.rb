@@ -16,6 +16,8 @@ class Income < ApplicationRecord
   monetize :rate_cents
   monetize :weekly_income_cents
 
+  scope :order_by_type, -> { order(income_type: :desc) }
+
   def update_from_dashboard(params:)
     income = params[:income]
     income_type_passed = income[:income_type]
@@ -38,10 +40,6 @@ class Income < ApplicationRecord
     else
       false
     end
-  end
-
-  def self.order_by_type
-    Income.all.order(income_type: :desc)
   end
 
   def is_hourly?
