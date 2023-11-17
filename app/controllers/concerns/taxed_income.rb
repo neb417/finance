@@ -3,7 +3,6 @@
 module TaxedIncome
   def tax_on_salary
     income = Income.find_by(income_type: "Salary")
-    Rails.logger.debug "**** Tax Salary: #{income.inspect}"
     IncomeTaxCalculatorService.new(income: income)
   end
 
