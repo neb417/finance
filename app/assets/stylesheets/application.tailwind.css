@@ -11,6 +11,10 @@
     @apply rounded-lg px-4 bg-red-600 inline-block font-medium text-white;
   }
 
+  .btn-secondary {
+    @apply rounded-lg px-4 bg-blue-600 inline-block font-medium text-white;
+  }
+
   h1 {
     @apply text-3xl font-bold tracking-tight text-gray-800
   }
