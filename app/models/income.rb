@@ -16,6 +16,8 @@ class Income < ApplicationRecord
   monetize :rate_cents
   monetize :weekly_income_cents
 
+  scope :order_by_type, -> { order(income_type: :desc) }
+
   def update_from_dashboard(params:)
     income = params[:income]
     income_type_passed = income[:income_type]
@@ -40,22 +42,11 @@ class Income < ApplicationRecord
     end
   end
 
-  def self.order_by_type
-    Income.all.order(income_type: :desc)
-  end
-
   def is_hourly?
     income_type == "Hourly"
   end
 
   def is_salary?
     income_type == "Salary"
-  end
-
-  def self.tax_on_income(income_type:)
-    income = Income.find_by(income_type: income_type)
-    taxable_income = IncomeTaxCalculator.new(income: income)
-    taxable_income.calculate_taxes
-    taxable_income
   end
 end

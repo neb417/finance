@@ -1,4 +1,7 @@
 class IncomesController < ApplicationController
+  include DashboardBuilder
+  include TotalCost
+
   before_action :set_income, only: %i[show edit update destroy]
 
   # GET /incomes or /incomes.json
@@ -38,9 +41,7 @@ class IncomesController < ApplicationController
   def update
     respond_to do |format|
       if @income.update_from_dashboard(params: params)
-        @salary_taxed = Income.tax_on_income(income_type: "Salary")
-        @hourly_taxed = Income.tax_on_income(income_type: "Hourly")
-        @totals = FixedExpense.total_costs
+        build_dashboard_variables!
         format.html { redirect_to root_path, notice: "Income was successfully updated." }
         format.turbo_stream
       else
@@ -61,31 +62,20 @@ class IncomesController < ApplicationController
   end
 
   def income_switch
-    totals = FixedExpense.total_costs
     if params[:enabled] == "0"
-      salary = Income.tax_on_income(income_type: "Salary")
-
       respond_to do |format|
         format.turbo_stream {
           render turbo_stream: turbo_stream.replace("hourly_budget",
             partial: "budget/salary_budget",
-            locals: {
-              totals: totals,
-              income: salary
-            })
+            locals: build_locals(tax_on_salary))
         }
       end
     else
-      hourly = Income.tax_on_income(income_type: "Hourly")
-
       respond_to do |format|
         format.turbo_stream {
           render turbo_stream: turbo_stream.replace("salary_budget",
             partial: "budget/hourly_budget",
-            locals: {
-              totals: totals,
-              income: hourly
-            })
+            locals: build_locals(tax_on_hourly))
         }
       end
     end
@@ -101,5 +91,15 @@ class IncomesController < ApplicationController
   # Only allow a list of trusted parameters through.
   def income_params
     params.require(:income).permit(:income_type, :rate, :hours, :weekly_income)
+  end
+
+  def build_locals(income)
+    build_total_cost_vars!
+    {
+      total_annual_cost: @total_annual_cost,
+      total_monthly_cost: @total_monthly_cost,
+      total_bi_weekly_cost: @total_bi_weekly_cost,
+      income: income
+    }
   end
 end
