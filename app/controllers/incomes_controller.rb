@@ -1,6 +1,7 @@
 class IncomesController < ApplicationController
   include DashboardBuilder
   include TotalCost
+  include SaveIncome
 
   before_action :set_income, only: %i[show edit update destroy]
 
@@ -42,7 +43,6 @@ class IncomesController < ApplicationController
     respond_to do |format|
       if @income.update_from_dashboard(params: params)
         build_dashboard_variables!
-        format.html { redirect_to root_path, notice: "Income was successfully updated." }
         format.turbo_stream
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -93,13 +93,17 @@ class IncomesController < ApplicationController
     params.require(:income).permit(:income_type, :rate, :hours, :weekly_income)
   end
 
-  def build_locals(income)
+  def build_locals(taxed_income)
+    income = taxed_income.income
     build_total_cost_vars!
+    build_savings_vars!
     {
       total_annual_cost: @total_annual_cost,
       total_monthly_cost: @total_monthly_cost,
       total_bi_weekly_cost: @total_bi_weekly_cost,
-      income: income
+      income: taxed_income,
+      investing_amount: income.is_hourly? ? @hourly_invest : @salary_invest,
+      savings_amount: income.is_hourly? ? @hourly_saving : @salary_saving
     }
   end
 end

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :savings_rates
   resources :federal_tax_brackets
   resources :fixed_expenses
   root "dashboard#index"

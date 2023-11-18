@@ -1,13 +1,36 @@
 <%= turbo_stream.update @income %>
 
 <%= turbo_stream.replace "taxed_incomes" do %>
-  <%= render partial: "shared/taxed_incomes", locals: { salary_taxed: @salary_taxed, hourly_taxed: @hourly_taxed } %>
+  <%= render partial: "shared/taxed_incomes",
+             locals: {
+               salary_taxed: @salary_taxed,
+               hourly_taxed: @hourly_taxed
+             }
+  %>
 <% end %>
 
 <%= turbo_stream.replace "salary_budget" do %>
-  <%= render partial: "budget/salary_budget", locals: {total_annual_cost: @total_annual_cost, total_monthly_cost: @total_monthly_cost, total_bi_weekly_cost: @total_bi_weekly_cost, income: @salary_taxed} %>
+  <%= render partial: "budget/salary_budget",
+             locals: {
+               total_annual_cost: @total_annual_cost,
+               total_monthly_cost: @total_monthly_cost,
+               total_bi_weekly_cost: @total_bi_weekly_cost,
+               income: @salary_taxed,
+               investing_amount: @salary_invest,
+               savings_amount: @salary_saving
+             }
+  %>
 <% end %>
 
 <%= turbo_stream.replace "hourly_budget" do %>
-  <%= render partial: "budget/hourly_budget", locals: {total_annual_cost: @total_annual_cost, total_monthly_cost: @total_monthly_cost, total_bi_weekly_cost: @total_bi_weekly_cost, income: @hourly_taxed} %>
+  <%= render partial: "budget/hourly_budget",
+             locals: {
+               total_annual_cost: @total_annual_cost,
+               total_monthly_cost: @total_monthly_cost,
+               total_bi_weekly_cost: @total_bi_weekly_cost,
+               income: @hourly_taxed,
+               investing_amount: @hourly_invest,
+               savings_amount: @hourly_saving
+             }
+  %>
 <% end %>
