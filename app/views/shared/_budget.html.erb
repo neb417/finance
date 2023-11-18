@@ -9,7 +9,7 @@
     <%= humanized_money_with_symbol(savings_amount.daily_saving) %>
   </div>
   <div>
-    <%= humanized_money_with_symbol((income.daily_income) - total_annual_cost / 365) %>
+    <%= humanized_money_with_symbol((guilt_free.daily_guilt_free) - total_annual_cost / 365) %>
   </div>
 </div>
 
@@ -19,7 +19,7 @@
   <div><%= humanized_money_with_symbol(investing_amount.weekly_saving) %></div>
   <div><%= humanized_money_with_symbol(savings_amount.weekly_saving) %></div>
   <div>
-    <%= humanized_money_with_symbol((income.weekly_income) - total_annual_cost / 52) %>
+    <%= humanized_money_with_symbol((guilt_free.weekly_guilt_free) - total_annual_cost / 52) %>
   </div>
 </div>
 
@@ -29,7 +29,7 @@
   <div><%= humanized_money_with_symbol(investing_amount.bi_weekly_saving) %></div>
   <div><%= humanized_money_with_symbol(savings_amount.bi_weekly_saving) %></div>
   <div>
-    <%= humanized_money_with_symbol((income.bi_weekly_net_income) - total_bi_weekly_cost) %>
+    <%= humanized_money_with_symbol((guilt_free.bi_weekly_guilt_free) - total_bi_weekly_cost) %>
   </div>
 </div>
 
@@ -39,7 +39,7 @@
   <div><%= humanized_money_with_symbol(investing_amount.monthly_saving) %></div>
   <div><%= humanized_money_with_symbol(savings_amount.monthly_saving) %></div>
   <div>
-    <%= humanized_money_with_symbol((income.monthly_income) - total_monthly_cost) %>
+    <%= humanized_money_with_symbol((guilt_free.monthly_guilt_free) - total_monthly_cost) %>
   </div>
 </div>
 
@@ -49,7 +49,7 @@
   <div><%= humanized_money_with_symbol(investing_amount.quarterly_saving) %></div>
   <div><%= humanized_money_with_symbol(savings_amount.quarterly_saving) %></div>
   <div>
-    <%= humanized_money_with_symbol((income.quarterly_income) - total_annual_cost / 4) %>
+    <%= humanized_money_with_symbol((guilt_free.quarterly_guilt_free) - total_annual_cost / 4) %>
   </div>
 </div>
 
@@ -59,7 +59,7 @@
   <div><%= humanized_money_with_symbol(investing_amount.biannual_saving) %></div>
   <div><%= humanized_money_with_symbol(savings_amount.biannual_saving) %></div>
   <div>
-    <%= humanized_money_with_symbol((income.biannual_income) - total_annual_cost / 2) %>
+    <%= humanized_money_with_symbol((guilt_free.biannual_guilt_free) - total_annual_cost / 2) %>
   </div>
 </div>
 
@@ -70,6 +70,6 @@
   <div><%= humanized_money_with_symbol(investing_amount.annual_saving) %></div>
   <div><%= humanized_money_with_symbol(savings_amount.annual_saving) %></div>
   <div>
-    <%= humanized_money_with_symbol(income.total_net_income - total_annual_cost ) %>
+    <%= humanized_money_with_symbol(guilt_free.annual_guilt_free - total_annual_cost ) %>
   </div>
 </div>
