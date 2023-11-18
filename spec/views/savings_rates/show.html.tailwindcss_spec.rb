@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.describe "savings_rates/show", type: :view do
   before(:each) do
     assign(:savings_rate, SavingsRate.create!(
-      name: "Name",
+      name: "savings",
       rate: 2.5
     ))
   end

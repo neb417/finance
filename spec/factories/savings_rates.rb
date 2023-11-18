@@ -10,7 +10,7 @@
 #
 FactoryBot.define do
   factory :savings_rate do
-    name { "MyString" }
+    name { "savings" }
     rate { 1.5 }
   end
 end

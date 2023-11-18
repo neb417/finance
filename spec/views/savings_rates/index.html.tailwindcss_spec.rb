@@ -4,11 +4,11 @@ RSpec.describe "savings_rates/index", type: :view do
   before(:each) do
     assign(:savings_rates, [
       SavingsRate.create!(
-        name: "Name",
+        name: "savings",
         rate: 2.5
       ),
       SavingsRate.create!(
-        name: "Name",
+        name: "investing",
         rate: 2.5
       )
     ])

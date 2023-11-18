@@ -1,12 +1,7 @@
 require "rails_helper"
 
 RSpec.describe "savings_rates/edit", type: :view do
-  let(:savings_rate) {
-    SavingsRate.create!(
-      name: "MyString",
-      rate: 1.5
-    )
-  }
+  let(:savings_rate) {create(:savings_rate)}
 
   before(:each) do
     assign(:savings_rate, savings_rate)
