@@ -2,12 +2,12 @@
 
 class GuiltFreeCalculator
   attr_reader :annual_guilt_free,
-              :biannual_guilt_free,
-              :quarterly_guilt_free,
-              :monthly_guilt_free,
-              :bi_weekly_guilt_free,
-              :weekly_guilt_free,
-              :daily_guilt_free
+    :biannual_guilt_free,
+    :quarterly_guilt_free,
+    :monthly_guilt_free,
+    :bi_weekly_guilt_free,
+    :weekly_guilt_free,
+    :daily_guilt_free
 
   def initialize(taxed_income, savings_totals)
     @taxed_income = taxed_income
