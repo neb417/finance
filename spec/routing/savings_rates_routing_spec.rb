@@ -18,7 +18,6 @@ RSpec.describe SavingsRatesController, type: :routing do
       expect(get: "/savings_rates/1/edit").to route_to("savings_rates#edit", id: "1")
     end
 
-
     it "routes to #create" do
       expect(post: "/savings_rates").to route_to("savings_rates#create")
     end

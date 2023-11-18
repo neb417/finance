@@ -2,13 +2,13 @@
 
 class SavingsCalculator
   attr_reader :saving_amount,
-              :annual_saving,
-              :biannual_saving,
-              :quarterly_saving,
-              :monthly_saving,
-              :bi_weekly_saving,
-              :weekly_saving,
-              :daily_saving
+    :annual_saving,
+    :biannual_saving,
+    :quarterly_saving,
+    :monthly_saving,
+    :bi_weekly_saving,
+    :weekly_saving,
+    :daily_saving
 
   def initialize(income_type, saving_rate)
     @annual_income = income_type.annual_income

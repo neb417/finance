@@ -14,6 +14,7 @@ module SaveIncome
   def salary_investing
     SavingsCalculator.new(tax_on_salary, set_invest_rate)
   end
+
   def salary_saving
     SavingsCalculator.new(tax_on_salary, set_save_rate)
   end
@@ -21,6 +22,7 @@ module SaveIncome
   def hourly_investing
     SavingsCalculator.new(tax_on_hourly, set_invest_rate)
   end
+
   def hourly_saving
     SavingsCalculator.new(tax_on_hourly, set_save_rate)
   end

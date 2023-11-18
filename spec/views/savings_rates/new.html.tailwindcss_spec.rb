@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe "savings_rates/new", type: :view do
   before(:each) do
@@ -12,7 +12,6 @@ RSpec.describe "savings_rates/new", type: :view do
     render
 
     assert_select "form[action=?][method=?]", savings_rates_path, "post" do
-
       assert_select "input[name=?]", "savings_rate[name]"
 
       assert_select "input[name=?]", "savings_rate[rate]"
