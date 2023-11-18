@@ -2,6 +2,7 @@ class IncomesController < ApplicationController
   include DashboardBuilder
   include TotalCost
   include SaveIncome
+  include GuiltFree
 
   before_action :set_income, only: %i[show edit update destroy]
 
@@ -95,15 +96,15 @@ class IncomesController < ApplicationController
 
   def build_locals(taxed_income)
     income = taxed_income.income
-    build_total_cost_vars!
-    build_savings_vars!
+    build_dashboard_variables!
     {
       total_annual_cost: @total_annual_cost,
       total_monthly_cost: @total_monthly_cost,
       total_bi_weekly_cost: @total_bi_weekly_cost,
       income: taxed_income,
       investing_amount: income.is_hourly? ? @hourly_invest : @salary_invest,
-      savings_amount: income.is_hourly? ? @hourly_saving : @salary_saving
+      savings_amount: income.is_hourly? ? @hourly_saving : @salary_saving,
+      guilt_free: income.is_hourly? ? @guilt_free_hourly : @guilt_free_salary
     }
   end
 end
