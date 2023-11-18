@@ -1,4 +1,6 @@
 class SavingsRatesController < ApplicationController
+  include DashboardBuilder
+
   before_action :set_savings_rate, only: %i[ show edit update destroy ]
 
   # GET /savings_rates or /savings_rates.json
@@ -37,9 +39,10 @@ class SavingsRatesController < ApplicationController
   # PATCH/PUT /savings_rates/1 or /savings_rates/1.json
   def update
     respond_to do |format|
-      if @savings_rate.update(savings_rate_params)
-        format.html { redirect_to savings_rate_url(@savings_rate), notice: "Savings rate was successfully updated." }
-        format.json { render :show, status: :ok, location: @savings_rate }
+      if @savings_rate.update_from_dashboard(params: savings_rate_params)
+        # calculate new savings amounts for both hourly and salary and new guilt free
+        build_dashboard_variables!
+        format.turbo_stream
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @savings_rate.errors, status: :unprocessable_entity }

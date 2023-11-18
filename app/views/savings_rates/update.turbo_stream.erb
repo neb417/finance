@@ -1,14 +1,4 @@
-<%= turbo_stream.update @fixed_expense %>
-
-<%= turbo_stream.replace "total_costs" do %>
-  <%= render partial: "shared/total_costs",
-             locals: {
-               total_annual_cost: @total_annual_cost,
-               total_monthly_cost: @total_monthly_cost,
-               total_bi_weekly_cost: @total_bi_weekly_cost
-             }
-  %>
-<% end %>
+<%= turbo_stream.update @savings_rate %>
 
 <%= turbo_stream.replace "salary_budget" do %>
   <%= render partial: "budget/salary_budget",

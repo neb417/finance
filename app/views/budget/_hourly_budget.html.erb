@@ -1,7 +1,16 @@
 <%= turbo_frame_tag "hourly_budget" do %>
   <div id="hourly_budget" class="py-4">
+
     <strong>Hourly</strong>
     <%= render partial: "budget/budget_headings" %>
-    <%= render partial: "shared/budget", locals: { total_annual_cost: total_annual_cost, total_monthly_cost: total_monthly_cost, total_bi_weekly_cost: total_bi_weekly_cost, income: income } %>
+    <%= render partial: "shared/budget",
+               locals: {
+                 total_annual_cost: total_annual_cost,
+                 total_monthly_cost: total_monthly_cost,
+                 total_bi_weekly_cost: total_bi_weekly_cost,
+                 income: income,
+                 investing_amount: investing_amount,
+                 savings_amount: savings_amount
+               } %>
   </div>
 <% end %>
