@@ -2,7 +2,6 @@
   <div id="salary_budget" class="py-4">
     <strong>Salary</strong>
     <%= render partial: "budget/budget_headings" %>
-    <% Rails.logger.debug "*** Salary_budget #{savings_amount.daily_saving}" %>
     <%= render partial: "shared/budget",
                locals: {
                  total_annual_cost: total_annual_cost,
