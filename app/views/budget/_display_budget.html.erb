@@ -1,0 +1,10 @@
+<%= render partial: "shared/total", locals: { total: total_cost } %>
+<div>
+  <%= humanized_money_with_symbol(savings_amount) %>
+</div>
+<div>
+  <%= humanized_money_with_symbol(investing_amount) %>
+</div>
+<div>
+  <%= humanized_money_with_symbol(guilt_free) %>
+</div>

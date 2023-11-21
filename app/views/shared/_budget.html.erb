@@ -1,75 +1,91 @@
 <div class="grid grid-cols-5">
   <div>Daily</div>
 
-  <%= render partial: "shared/total", locals: { total: total_annual_cost / 365 } %>
-  <div>
-    <%= humanized_money_with_symbol(investing_amount.daily_saving) %>
-  </div>
-  <div>
-    <%= humanized_money_with_symbol(savings_amount.daily_saving) %>
-  </div>
-  <div>
-    <%= humanized_money_with_symbol((guilt_free.daily_guilt_free) - total_annual_cost / 365) %>
-  </div>
+  <%= render partial: "budget/display_budget",
+             locals: {
+               total_cost: total_annual_cost/365,
+               savings_amount: savings_amount.daily_saving,
+               investing_amount: investing_amount.daily_saving,
+               guilt_free: guilt_free.daily_guilt_free - total_annual_cost/365
+             }
+  %>
 </div>
 
 <div class="grid grid-cols-5">
   <div>Weekly</div>
-  <%= render partial: "shared/total", locals: { total: total_annual_cost / 52 } %>
-  <div><%= humanized_money_with_symbol(investing_amount.weekly_saving) %></div>
-  <div><%= humanized_money_with_symbol(savings_amount.weekly_saving) %></div>
-  <div>
-    <%= humanized_money_with_symbol((guilt_free.weekly_guilt_free) - total_annual_cost / 52) %>
-  </div>
+
+  <%= render partial: "budget/display_budget",
+             locals: {
+               total_cost: total_annual_cost/52,
+               savings_amount: savings_amount.weekly_saving,
+               investing_amount: investing_amount.weekly_saving,
+               guilt_free: guilt_free.weekly_guilt_free - total_annual_cost/52
+             }
+  %>
 </div>
 
 <div class="grid grid-cols-5">
   <div>Bi-Weekly</div>
-  <%= render partial: "shared/total", locals: { total: total_bi_weekly_cost } %>
-  <div><%= humanized_money_with_symbol(investing_amount.bi_weekly_saving) %></div>
-  <div><%= humanized_money_with_symbol(savings_amount.bi_weekly_saving) %></div>
-  <div>
-    <%= humanized_money_with_symbol((guilt_free.bi_weekly_guilt_free) - total_bi_weekly_cost) %>
-  </div>
+
+  <%= render partial: "budget/display_budget",
+             locals: {
+               total_cost: total_bi_weekly_cost,
+               savings_amount: savings_amount.bi_weekly_saving,
+               investing_amount: investing_amount.bi_weekly_saving,
+               guilt_free: guilt_free.bi_weekly_guilt_free - total_bi_weekly_cost
+             }
+  %>
+
 </div>
 
 <div class="grid grid-cols-5">
   <div>Monthly</div>
-  <%= render partial: "shared/total", locals: { total: total_monthly_cost } %>
-  <div><%= humanized_money_with_symbol(investing_amount.monthly_saving) %></div>
-  <div><%= humanized_money_with_symbol(savings_amount.monthly_saving) %></div>
-  <div>
-    <%= humanized_money_with_symbol((guilt_free.monthly_guilt_free) - total_monthly_cost) %>
-  </div>
+
+  <%= render partial: "budget/display_budget",
+             locals: {
+               total_cost: total_monthly_cost,
+               savings_amount: savings_amount.monthly_saving,
+               investing_amount: investing_amount.monthly_saving,
+               guilt_free: guilt_free.monthly_guilt_free - total_monthly_cost
+             }
+  %>
 </div>
 
 <div class="grid grid-cols-5">
   <div>Quarterly</div>
-  <%= render partial: "shared/total", locals: { total: total_annual_cost / 4 } %>
-  <div><%= humanized_money_with_symbol(investing_amount.quarterly_saving) %></div>
-  <div><%= humanized_money_with_symbol(savings_amount.quarterly_saving) %></div>
-  <div>
-    <%= humanized_money_with_symbol((guilt_free.quarterly_guilt_free) - total_annual_cost / 4) %>
-  </div>
+
+  <%= render partial: "budget/display_budget",
+             locals: {
+               total_cost: total_annual_cost/4,
+               savings_amount: savings_amount.quarterly_saving,
+               investing_amount: investing_amount.quarterly_saving,
+               guilt_free: guilt_free.quarterly_guilt_free - total_annual_cost / 4
+             }
+  %>
 </div>
 
 <div class="grid grid-cols-5">
   <div>Biannual</div>
-  <%= render partial: "shared/total", locals: { total: total_annual_cost / 2 } %>
-  <div><%= humanized_money_with_symbol(investing_amount.biannual_saving) %></div>
-  <div><%= humanized_money_with_symbol(savings_amount.biannual_saving) %></div>
-  <div>
-    <%= humanized_money_with_symbol((guilt_free.biannual_guilt_free) - total_annual_cost / 2) %>
-  </div>
+
+  <%= render partial: "budget/display_budget",
+             locals: {
+               total_cost: total_annual_cost/2,
+               savings_amount: savings_amount.biannual_saving,
+               investing_amount: investing_amount.biannual_saving,
+               guilt_free: guilt_free.biannual_guilt_free - total_annual_cost / 2
+             }
+  %>
 </div>
 
 <div class="grid grid-cols-5">
   <div>Annually</div>
-  <%= render partial: "shared/total", locals: { total: total_annual_cost } %>
 
-  <div><%= humanized_money_with_symbol(investing_amount.annual_saving) %></div>
-  <div><%= humanized_money_with_symbol(savings_amount.annual_saving) %></div>
-  <div>
-    <%= humanized_money_with_symbol(guilt_free.annual_guilt_free - total_annual_cost ) %>
-  </div>
+  <%= render partial: "budget/display_budget",
+             locals: {
+               total_cost: total_annual_cost,
+               savings_amount: savings_amount.annual_saving,
+               investing_amount: investing_amount.annual_saving,
+               guilt_free: guilt_free.annual_guilt_free - total_annual_cost
+             }
+  %>
 </div>
