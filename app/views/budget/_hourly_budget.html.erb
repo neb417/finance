@@ -5,13 +5,12 @@
     <%= render partial: "budget/budget_headings" %>
     <%= render partial: "shared/budget",
                locals: {
-                 total_annual_cost: total_annual_cost,
-                 total_monthly_cost: total_monthly_cost,
-                 total_bi_weekly_cost: total_bi_weekly_cost,
                  income: income,
+                 total_cost: total_cost,
                  investing_amount: investing_amount,
                  savings_amount: savings_amount,
                  guilt_free: guilt_free
-               } %>
+               }
+    %>
   </div>
 <% end %>

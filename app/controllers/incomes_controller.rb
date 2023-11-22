@@ -3,6 +3,7 @@ class IncomesController < ApplicationController
   include TotalCost
   include SaveIncome
   include GuiltFree
+  include Stream
 
   before_action :set_income, only: %i[show edit update destroy]
 
@@ -63,22 +64,11 @@ class IncomesController < ApplicationController
   end
 
   def income_switch
+    build_dashboard_variables!
     if params[:enabled] == "0"
-      respond_to do |format|
-        format.turbo_stream {
-          render turbo_stream: turbo_stream.replace("hourly_budget",
-            partial: "budget/salary_budget",
-            locals: build_locals(tax_on_salary))
-        }
-      end
+      render_respond_to(switch_to_salary)
     else
-      respond_to do |format|
-        format.turbo_stream {
-          render turbo_stream: turbo_stream.replace("salary_budget",
-            partial: "budget/hourly_budget",
-            locals: build_locals(tax_on_hourly))
-        }
-      end
+      render_respond_to(switch_to_hourly)
     end
   end
 
@@ -94,17 +84,17 @@ class IncomesController < ApplicationController
     params.require(:income).permit(:income_type, :rate, :hours, :weekly_income)
   end
 
-  def build_locals(taxed_income)
-    income = taxed_income.income
-    build_dashboard_variables!
-    {
-      total_annual_cost: @total_annual_cost,
-      total_monthly_cost: @total_monthly_cost,
-      total_bi_weekly_cost: @total_bi_weekly_cost,
-      income: taxed_income,
-      investing_amount: income.is_hourly? ? @hourly_invest : @salary_invest,
-      savings_amount: income.is_hourly? ? @hourly_saving : @salary_saving,
-      guilt_free: income.is_hourly? ? @guilt_free_hourly : @guilt_free_salary
-    }
-  end
+  # def build_locals(taxed_income)
+  #   income = taxed_income.income
+  #   build_dashboard_variables!
+  #   {
+  #     total_annual_cost: @total_annual_cost,
+  #     total_monthly_cost: @total_monthly_cost,
+  #     total_bi_weekly_cost: @total_bi_weekly_cost,
+  #     income: taxed_income,
+  #     investing_amount: income.is_hourly? ? @hourly_invest : @salary_invest,
+  #     savings_amount: income.is_hourly? ? @hourly_saving : @salary_saving,
+  #     guilt_free: income.is_hourly? ? @guilt_free_hourly : @guilt_free_salary
+  #   }
+  # end
 end

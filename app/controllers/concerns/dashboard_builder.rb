@@ -16,6 +16,16 @@ module DashboardBuilder
     build_savings_vars!
     build_guilt_free_vars!
     build_total_cost_vars!
-    Rails.logger.debug "\n *** Building Vars!!\n "
+  end
+
+  def build_locals(taxed_income)
+    income = taxed_income.income
+    {
+      income: taxed_income,
+      total_cost: @total_cost,
+      investing_amount: income.is_hourly? ? @hourly_invest : @salary_invest,
+      savings_amount: income.is_hourly? ? @hourly_saving : @salary_saving,
+      guilt_free: income.is_hourly? ? @guilt_free_hourly : @guilt_free_salary
+    }
   end
 end

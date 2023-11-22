@@ -40,7 +40,6 @@ class SavingsRatesController < ApplicationController
   def update
     respond_to do |format|
       if @savings_rate.update_from_dashboard(params: savings_rate_params)
-        # calculate new savings amounts for both hourly and salary and new guilt free
         build_dashboard_variables!
         format.turbo_stream
       else

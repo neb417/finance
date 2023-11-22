@@ -13,10 +13,13 @@ module TotalCost
     Money.new(get_sum(:bi_weekly_cost_cents))
   end
 
+  def total_cost
+    cost = FixedExpense.sum(&:annual_cost)
+    TotalCostCalculator.new(cost: cost)
+  end
+
   def build_total_cost_vars!
-    @total_annual_cost = total_annual_cost
-    @total_monthly_cost = total_monthly_cost
-    @total_bi_weekly_cost = total_bi_weekly_cost
+    @total_cost = total_cost
   end
 
   private

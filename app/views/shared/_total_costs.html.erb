@@ -5,19 +5,19 @@
 
     <div>
       <strong>
-        <%= render partial: "shared/total", locals: { total: total_annual_cost } %>
+        <%= render partial: "shared/total", locals: { total: total_cost.annual_cost } %>
       </strong>
     </div>
 
     <div>
       <strong>
-        <%= render partial: "shared/total", locals: { total: total_monthly_cost } %>
+        <%= render partial: "shared/total", locals: { total: total_cost.monthly_cost } %>
       </strong>
     </div>
 
     <div>
       <strong>
-        <%= render partial: "shared/total", locals: { total: total_bi_weekly_cost } %>
+        <%= render partial: "shared/total", locals: { total: total_cost.bi_weekly_cost } %>
       </strong>
     </div>
 </div>

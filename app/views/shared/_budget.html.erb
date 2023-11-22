@@ -3,10 +3,10 @@
 
   <%= render partial: "budget/display_budget",
              locals: {
-               total_cost: total_annual_cost/365,
+               total_cost: total_cost.daily_cost,
                savings_amount: savings_amount.daily_saving,
                investing_amount: investing_amount.daily_saving,
-               guilt_free: guilt_free.daily_guilt_free - total_annual_cost/365
+               guilt_free: guilt_free.daily_guilt_free - total_cost.daily_cost
              }
   %>
 </div>
@@ -16,10 +16,10 @@
 
   <%= render partial: "budget/display_budget",
              locals: {
-               total_cost: total_annual_cost/52,
+               total_cost: total_cost.weekly_cost,
                savings_amount: savings_amount.weekly_saving,
                investing_amount: investing_amount.weekly_saving,
-               guilt_free: guilt_free.weekly_guilt_free - total_annual_cost/52
+               guilt_free: guilt_free.weekly_guilt_free - total_cost.weekly_cost
              }
   %>
 </div>
@@ -29,10 +29,10 @@
 
   <%= render partial: "budget/display_budget",
              locals: {
-               total_cost: total_bi_weekly_cost,
+               total_cost: total_cost.bi_weekly_cost,
                savings_amount: savings_amount.bi_weekly_saving,
                investing_amount: investing_amount.bi_weekly_saving,
-               guilt_free: guilt_free.bi_weekly_guilt_free - total_bi_weekly_cost
+               guilt_free: guilt_free.bi_weekly_guilt_free - total_cost.bi_weekly_cost
              }
   %>
 
@@ -43,10 +43,10 @@
 
   <%= render partial: "budget/display_budget",
              locals: {
-               total_cost: total_monthly_cost,
+               total_cost: total_cost.monthly_cost,
                savings_amount: savings_amount.monthly_saving,
                investing_amount: investing_amount.monthly_saving,
-               guilt_free: guilt_free.monthly_guilt_free - total_monthly_cost
+               guilt_free: guilt_free.monthly_guilt_free - total_cost.monthly_cost
              }
   %>
 </div>
@@ -56,10 +56,10 @@
 
   <%= render partial: "budget/display_budget",
              locals: {
-               total_cost: total_annual_cost/4,
+               total_cost: total_cost.quarterly_cost,
                savings_amount: savings_amount.quarterly_saving,
                investing_amount: investing_amount.quarterly_saving,
-               guilt_free: guilt_free.quarterly_guilt_free - total_annual_cost / 4
+               guilt_free: guilt_free.quarterly_guilt_free - total_cost.quarterly_cost
              }
   %>
 </div>
@@ -69,10 +69,10 @@
 
   <%= render partial: "budget/display_budget",
              locals: {
-               total_cost: total_annual_cost/2,
+               total_cost: total_cost.biannual_cost,
                savings_amount: savings_amount.biannual_saving,
                investing_amount: investing_amount.biannual_saving,
-               guilt_free: guilt_free.biannual_guilt_free - total_annual_cost / 2
+               guilt_free: guilt_free.biannual_guilt_free - total_cost.biannual_cost
              }
   %>
 </div>
@@ -82,10 +82,10 @@
 
   <%= render partial: "budget/display_budget",
              locals: {
-               total_cost: total_annual_cost,
+               total_cost:  total_cost.annual_cost,
                savings_amount: savings_amount.annual_saving,
                investing_amount: investing_amount.annual_saving,
-               guilt_free: guilt_free.annual_guilt_free - total_annual_cost
+               guilt_free: guilt_free.annual_guilt_free - total_cost.annual_cost
              }
   %>
 </div>
