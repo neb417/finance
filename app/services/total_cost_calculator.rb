@@ -2,12 +2,12 @@
 
 class TotalCostCalculator
   attr_reader :annual_cost,
-              :biannual_cost,
-              :quarterly_cost,
-              :monthly_cost,
-              :bi_weekly_cost,
-              :weekly_cost,
-              :daily_cost
+    :biannual_cost,
+    :quarterly_cost,
+    :monthly_cost,
+    :bi_weekly_cost,
+    :weekly_cost,
+    :daily_cost
 
   def initialize(cost:)
     @annual_cost = cost
