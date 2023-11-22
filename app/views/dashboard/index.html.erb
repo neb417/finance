@@ -39,9 +39,8 @@
       <div id="final_income">
         <%= render partial: "budget/salary_budget",
                    locals: {
-                     total_annual_cost: @total_annual_cost,
-                     total_monthly_cost: @total_monthly_cost,
-                     total_bi_weekly_cost: @total_bi_weekly_cost, income: @salary_taxed,
+                     income: @salary_taxed,
+                     total_cost: @total_cost,
                      investing_amount: @salary_invest,
                      savings_amount: @salary_saving,
                      guilt_free: @guilt_free_salary
@@ -85,11 +84,7 @@
       <% end  %>
 
       <%= turbo_frame_tag "total_costs" do %>
-        <%= render partial: "shared/total_costs",
-                   locals: {
-                     total_annual_cost: @total_annual_cost,
-                     total_monthly_cost: @total_monthly_cost,
-                     total_bi_weekly_cost: @total_bi_weekly_cost } %>
+        <%= render partial: "shared/total_costs", locals: { total_cost: @total_cost } %>
       <% end %>
     </div>
   </div>
