@@ -31,7 +31,8 @@ class IncomeTaxCalculatorService
 
   def calculate_fed_tax
     bracket = FederalTaxBracket.where("bottom_range_cents <= ?", @annual_income.cents).order(:bottom_range_cents).last
-    rated = bracket.rate * @annual_income
+    taxable_at_bracket_rate = Money.new(@annual_income.cents - bracket.bottom_range_cents)
+    rated = bracket.rate * taxable_at_bracket_rate
     rated + bracket.cumulative
   end
 
