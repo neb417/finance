@@ -1,8 +1,3 @@
-<!--<div class="px-5"><%#= humanized_money_with_symbol(taxed_income.federal_tax) %></div>-->
-<!--<div class="px-5"><%#= humanized_money_with_symbol(taxed_income.fica_tax) %></div>-->
-<!--<div class="px-5"><%#= humanized_money_with_symbol(taxed_income.state_tax) %></div>-->
-<!--<div class="px-5"><%#= humanized_money_with_symbol(taxed_income.total_net_income) %></div>-->
-
 <% paid_taxes = [ taxed_income.federal_tax, taxed_income.fica_tax, taxed_income.state_tax, taxed_income.total_net_income ] %>
 
 <% paid_taxes.each do |tax| %>
