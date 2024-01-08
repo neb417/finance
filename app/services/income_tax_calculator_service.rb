@@ -2,6 +2,7 @@ class IncomeTaxCalculatorService
   attr_reader :income,
     :annual_income,
     :federal_tax,
+    :fica_tax,
     :net_after_fed_tax,
     :state_tax,
     :total_net_income,
@@ -16,6 +17,7 @@ class IncomeTaxCalculatorService
     @income = income
     @annual_income = income.weekly_income * 52
     @federal_tax = calculate_fed_tax
+    @fica_tax = calculate_fica_tax
     @net_after_fed_tax = calculate_net_after_fed_tax
     @state_tax = calculate_state_tax
     @total_net_income = calculate_total_net_income
@@ -36,6 +38,10 @@ class IncomeTaxCalculatorService
     rated + bracket.cumulative
   end
 
+  def calculate_fica_tax
+    @annual_income * 0.0765
+  end
+
   def calculate_state_tax
     @net_after_fed_tax * 0.0463
   end
@@ -45,7 +51,7 @@ class IncomeTaxCalculatorService
   end
 
   def calculate_total_net_income
-    @net_after_fed_tax - @state_tax
+    @net_after_fed_tax - @fica_tax - @state_tax
   end
 
   def calculate_bi_weekly_income
