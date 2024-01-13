@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require('rails_helper')
+require("rails_helper")
 
 RSpec.describe IncomeTaxCalculatorService, type: :service do
   let(:salary) { create(:income) }
@@ -9,11 +9,11 @@ RSpec.describe IncomeTaxCalculatorService, type: :service do
   let!(:taxed_salary) { IncomeTaxCalculatorService.new(income: salary) }
   let!(:taxed_hourly) { IncomeTaxCalculatorService.new(income: hourly) }
 
-  describe 'income taxes calculator' do
+  describe "income taxes calculator" do
     it { expect(taxed_salary).to be_an IncomeTaxCalculatorService }
     it { expect(taxed_hourly).to be_an IncomeTaxCalculatorService }
 
-    it 'calculates salary' do
+    it "calculates salary" do
       expect(taxed_salary.income).to be_truthy
       expect(taxed_salary.annual_income).to be_truthy
       expect(taxed_salary.fica_tax).to be_truthy
@@ -32,7 +32,7 @@ RSpec.describe IncomeTaxCalculatorService, type: :service do
       expect(taxed_salary.biannual_income).to be_truthy
     end
 
-    it 'calculates hourly' do
+    it "calculates hourly" do
       expect(taxed_hourly.income).to be_truthy
       expect(taxed_hourly.annual_income).to be_truthy
       expect(taxed_hourly.fica_tax).to be_truthy

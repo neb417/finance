@@ -1,20 +1,20 @@
 class IncomeTaxCalculatorService
   attr_reader :income,
-              :annual_income,
-              :fica_tax,
-              :agi_deduction,
-              :agi,
-              :federal_income_tax,
-              :total_federal_tax,
-              :net_after_fed_tax,
-              :state_tax,
-              :total_net_income,
-              :bi_weekly_net_income,
-              :daily_income,
-              :monthly_income,
-              :weekly_income,
-              :quarterly_income,
-              :biannual_income
+    :annual_income,
+    :fica_tax,
+    :agi_deduction,
+    :agi,
+    :federal_income_tax,
+    :total_federal_tax,
+    :net_after_fed_tax,
+    :state_tax,
+    :total_net_income,
+    :bi_weekly_net_income,
+    :daily_income,
+    :monthly_income,
+    :weekly_income,
+    :quarterly_income,
+    :biannual_income
 
   def initialize(income:)
     @income = income
