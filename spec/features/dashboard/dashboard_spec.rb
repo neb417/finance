@@ -25,9 +25,6 @@ RSpec.describe "Dashboard", type: :feature do
     end
 
     it "has fixed expenses on the dashboard" do
-      # create(:income, :with_all_types)
-      # create(:federal_tax_bracket, :with_all_tiers)
-      # fixed_expenses = create_list(:fixed_expense, 2)
       fixed1 = fixed_expenses.first
       fixed2 = fixed_expenses.last
 
