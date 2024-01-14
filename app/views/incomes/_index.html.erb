@@ -1,9 +1,11 @@
-<h3>Net Income</h3>
-<div class="grid grid-cols-5">
-  <% income_headings = ["Income Type", "Rate", "Hours", "Weekly Gross"] %>
-  <% income_headings.each do |income_heading| %>
-    <div class="px-5"><strong><%= income_heading %></strong></div>
-  <% end %>
-</div>
+<%= turbo_frame_tag :incomes do %>
+  <h3>Net Income</h3>
+  <div class="grid grid-cols-5">
+    <% income_headings = ["Income Type", "Rate", "Hours", "Weekly Gross"] %>
+    <% income_headings.each do |income_heading| %>
+      <div class="px-5"><strong><%= income_heading %></strong></div>
+    <% end %>
+  </div>
 
-<%= render @incomes %>
+  <%= render @incomes %>
+<% end %>
