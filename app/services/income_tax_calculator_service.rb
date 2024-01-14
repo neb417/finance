@@ -19,6 +19,7 @@ class IncomeTaxCalculatorService
   def initialize(income:)
     @income = income
     @annual_income = income.weekly_income * 52
+    @standard_deduction = Money.new(1_460_000)
     @fica_tax = calculate_fica_tax
     @agi_deduction = calculate_agi_deduction
     @agi = calculate_agi
@@ -46,7 +47,7 @@ class IncomeTaxCalculatorService
   end
 
   def calculate_agi
-    @annual_income - @agi_deduction
+    @annual_income - (@agi_deduction + @standard_deduction)
   end
 
   def calculate_fed_tax
