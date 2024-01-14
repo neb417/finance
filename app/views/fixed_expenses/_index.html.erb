@@ -1,8 +1,10 @@
-<div id="fixed_expense_labels" class="grid grid-cols-5">
-  <% fixed_headings = %w[Expense Annual Monthly Bi-weekly] %>
-  <% fixed_headings.each do |fixed_heading| %>
-    <div class="px-5 pt-4"><strong><%= fixed_heading %></strong></div>
-  <% end %>
-</div>
+<%= turbo_frame_tag :fixed_expenses do %>
+  <div id="fixed_expense_labels" class="grid grid-cols-5">
+    <% fixed_headings = %w[Expense Annual Monthly Bi-weekly] %>
+    <% fixed_headings.each do |fixed_heading| %>
+      <div class="px-5 pt-4"><strong><%= fixed_heading %></strong></div>
+    <% end %>
+  </div>
 
-<%= render @fixed_expenses %>
+  <%= render @fixed_expenses %>
+<% end %>

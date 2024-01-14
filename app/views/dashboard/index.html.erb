@@ -53,21 +53,17 @@
   <div class="primary-card">
     <div class="mx-auto py-6 sm:px-6 lg:px-8">
       <%= turbo_frame_tag "income_header_frame" do %>
-        <h3>Income</h3>
+        <h1>Income</h1>
         <%= link_to "New Income", new_income_path, data: { turbo_frame: :incomes }, class: "btn btn-primary" %>
       <% end %>
 
       <div class="pt-4">
-        <%= turbo_frame_tag :incomes do %>
-          <%= render "incomes/index" %>
-        <% end %>
+        <%= render "incomes/index" %>
       </div>
 
       <div class="pt-4">
-        <%= turbo_frame_tag "taxed_incomes" do %>
-          <%= render partial: "shared/taxed_incomes",
-                     locals: { salary_taxed: @salary_taxed, hourly_taxed: @hourly_taxed } %>
-        <% end %>
+        <%= render partial: "shared/taxed_incomes",
+                   locals: { salary_taxed: @salary_taxed, hourly_taxed: @hourly_taxed } %>
       </div>
     </div>
   </div>
@@ -79,13 +75,9 @@
         <%= link_to "New Fixed Expense", new_fixed_expense_path, data: { turbo_frame: :fixed_expenses }, class: "btn btn-primary" %>
       <% end %>
 
-      <%= turbo_frame_tag :fixed_expenses do %>
-        <%= render "fixed_expenses/index" %>
-      <% end  %>
+      <%= render "fixed_expenses/index" %>
 
-      <%= turbo_frame_tag "total_costs" do %>
-        <%= render partial: "shared/total_costs", locals: { total_cost: @total_cost } %>
-      <% end %>
+      <%= render partial: "shared/total_costs", locals: { total_cost: @total_cost } %>
     </div>
   </div>
 </div>
