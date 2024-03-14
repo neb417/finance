@@ -22,7 +22,8 @@ class FederalTaxBracketsController < ApplicationController
   # POST /federal_tax_brackets or /federal_tax_brackets.json
   def create
     @federal_tax_bracket = FederalTaxBracket.new(federal_tax_bracket_params)
-    @federal_tax_bracket.update_rate(rate: params[:rate])
+
+    @federal_tax_bracket.update_rate(rate: federal_tax_bracket_params[:rate].to_i)
 
     respond_to do |format|
       if @federal_tax_bracket.save
