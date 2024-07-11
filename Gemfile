@@ -52,6 +52,8 @@ gem "money-rails"
 
 gem "net-http"
 
+gem "data_migrate"
+
 group :development, :test do
   gem "capybara"
   gem "factory_bot_rails"
