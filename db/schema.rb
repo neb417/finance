@@ -14,6 +14,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_17_231745) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "data_migrations", primary_key: "version", id: :string, force: :cascade do |t|
+  end
+
   create_table "federal_tax_brackets", force: :cascade do |t|
     t.string "tier"
     t.integer "bottom_range_cents", default: 0, null: false
