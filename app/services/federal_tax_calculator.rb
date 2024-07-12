@@ -5,7 +5,7 @@ class FederalTaxCalculator
     self.income = income
   end
 
-  def callable
+  def call
     calculate
   end
 
