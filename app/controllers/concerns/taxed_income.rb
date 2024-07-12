@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 module TaxedIncome
+  extend ActiveSupport::Concern
+
   def tax_on_salary
     income = Income.find_by(income_type: "Salary")
     IncomeTaxCalculatorService.new(income: income)
