@@ -24,8 +24,8 @@ module Finance
     config.load_defaults 7.0
 
     # Load in all modules
-    config.autoload_paths << Rails.root.join('lib', 'modules')
-    config.eager_load_paths << Rails.root.join('lib', 'modules')
+    config.autoload_paths << Rails.root.join("lib", "modules")
+    config.eager_load_paths << Rails.root.join("lib", "modules")
 
     # Configuration for the application, engines, and railties goes here.
     #

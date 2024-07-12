@@ -31,7 +31,7 @@ module TaxedIncome
   end
 
   def net_income(annual_income:)
-    income = annual_income - (fica_tax(income:annual_income) + federal_tax(income:annual_income) + state_tax(income:annual_income))
+    income = annual_income - (fica_tax(income: annual_income) + federal_tax(income: annual_income) + state_tax(income: annual_income))
 
     @net_income ||= NetIncomeCalculator.call(annual_income: income)
   end

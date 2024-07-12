@@ -13,5 +13,4 @@ class StateTaxCalculator
   private
 
   attr_accessor :income
-
 end
