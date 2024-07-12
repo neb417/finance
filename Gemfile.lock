@@ -76,6 +76,7 @@ GEM
     bootsnap (1.16.0)
       msgpack (~> 1.2)
     builder (3.2.4)
+    callable (0.0.5)
     capybara (3.38.0)
       addressable
       matrix
@@ -304,6 +305,7 @@ PLATFORMS
 DEPENDENCIES
   annotate
   bootsnap
+  callable
   capybara
   data_migrate
   factory_bot_rails

@@ -54,6 +54,8 @@ gem "net-http"
 
 gem "data_migrate"
 
+gem "callable"
+
 group :development, :test do
   gem "capybara"
   gem "factory_bot_rails"
