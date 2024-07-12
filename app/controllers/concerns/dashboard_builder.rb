@@ -13,7 +13,7 @@ module DashboardBuilder
     @savings_rate = SavingsRate.savings
     @investing_rate = SavingsRate.investing
     build_taxed_income_vars!
-    build_savings_vars!
+    build_savings_vars!(salary_income: salary_income, hourly_income: hourly_income)
     build_guilt_free_vars!
     build_total_cost_vars!
   end
