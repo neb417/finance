@@ -1,23 +1,32 @@
 class NetIncomeCalculator
-  include Callable
+  attr_reader :annual_income, :daily_income, :weekly_income, :monthly_income, :quarterly_income, :biannual_income
 
   def initialize(annual_income:)
-    self.annual_income = annual_income
+    @annual_income = annual_income
+    @biannual_income = annual_income / 2
+    @quarterly_income = annual_income / 4
+    @monthly_income = annual_income / 12
+    @weekly_income = annual_income / 52
+    @daily_income = annual_income / 365
   end
 
-  def call
-    calculate_incomes
+  def biannual_income
+    annual_income / 2
   end
 
-  private
+  def quarterly_income
+    annual_income / 4
+  end
 
-  attr_accessor :annual_income, :daily_income, :weekly_income, :monthly_income, :quarterly_income, :biannual_income
+  def monthly_income
+    annual_income / 12
+  end
 
-  def calculate_incomes
-    self.daily_income = annual_income / 365
-    self.weekly_income = annual_income / 52
-    self.monthly_income = annual_income / 12
-    self.quarterly_income = annual_income / 4
-    self.biannual_income = annual_income / 2
+  def weekly_income
+    annual_income / 52
+  end
+
+  def daily_income
+    annual_income / 365
   end
 end
