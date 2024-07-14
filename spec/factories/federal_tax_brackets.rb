@@ -15,6 +15,8 @@
 #  updated_at            :datetime         not null
 #
 FactoryBot.define do
+  # tax_brackets = 10% on first $1,000, 15% from $1,001 to $100,000, 25% from $100,001 to $500,000
+
   factory :federal_tax_bracket do
     tier { "Tier 1" }
     bottom_range_cents { 0 }

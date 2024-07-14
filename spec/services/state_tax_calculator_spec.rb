@@ -2,7 +2,7 @@
 
 require("rails_helper")
 
-RSpec.describe FederalTaxCalculator, type: :service do
+RSpec.describe StateTaxCalculator, type: :service do
   subject(:service) do
     described_class.call(
       income: salary_income.rate)
@@ -13,11 +13,10 @@ RSpec.describe FederalTaxCalculator, type: :service do
 
   it { expect(service).to be_a Money }
 
-  it "calculates federal tax" do
+  it "calculates state tax" do
     # salary_income = $50,000
-    # tax_brackets = 10% on first $1,000, 15% from $1,001 to $100,000, 25% from $100,001 to $500,000
 
-    expect(service.format).to eq("$7,449.85")
-    expect((salary_income.rate - service).format).to eq("$42,550.15")
+    expect(service.format).to eq("$2,200.00")
+    expect((salary_income.rate - service).format).to eq("$47,800.00")
   end
 end
