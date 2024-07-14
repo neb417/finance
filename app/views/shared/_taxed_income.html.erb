@@ -1,4 +1,4 @@
-<% paid_taxes = [ taxed_income.federal_income_tax, taxed_income.fica_tax, taxed_income.state_tax, taxed_income.total_net_income ] %>
+<% paid_taxes = [ taxed_income.federal_tax, taxed_income.fica_tax, taxed_income.state_tax, taxed_income.net_income ] %>
 
 <% paid_taxes.each do |tax| %>
   <% if annual %>
