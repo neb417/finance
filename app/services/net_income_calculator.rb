@@ -3,11 +3,11 @@ class NetIncomeCalculator
 
   def initialize(annual_income:)
     @annual_income = annual_income
-    @biannual_income = annual_income / 2
-    @quarterly_income = annual_income / 4
-    @monthly_income = annual_income / 12
-    @weekly_income = annual_income / 52
-    @daily_income = annual_income / 365
+    @biannual_income = biannual_income
+    @quarterly_income = quarterly_income
+    @monthly_income = monthly_income
+    @weekly_income = weekly_income
+    @daily_income = daily_income
   end
 
   def biannual_income
