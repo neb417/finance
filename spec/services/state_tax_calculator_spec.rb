@@ -5,7 +5,8 @@ require("rails_helper")
 RSpec.describe StateTaxCalculator, type: :service do
   subject(:service) do
     described_class.call(
-      income: salary_income.rate)
+      income: salary_income.rate
+    )
   end
 
   let!(:salary_income) { create(:income) }
