@@ -9,6 +9,7 @@ RSpec.describe "Dashboard", type: :feature do
   let!(:fixed_expenses) { create_list(:fixed_expense, 2) }
   let!(:saving_rate) { create(:savings_rate) }
   let!(:investing_rate) { create(:savings_rate, name: "investing", rate: 0.02) }
+  let!(:standard_deduction) { create(:standard_deduction) }
 
   describe "GET /index" do
     it "routes to root path" do
