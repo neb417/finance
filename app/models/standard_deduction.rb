@@ -9,4 +9,8 @@
 #  updated_at      :datetime         not null
 #
 class StandardDeduction < ApplicationRecord
+  monetize :amount_cents
+
+  validates :amount_cents, presence: true
+  validates :amount_currency, presence: true
 end
