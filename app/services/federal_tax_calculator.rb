@@ -22,6 +22,6 @@ class FederalTaxCalculator
 
   def taxable_income
     # 2024 standard deduction = 13,850
-    @taxable_income ||= income - Money.new(13_850_00)
+    @taxable_income ||= income - StandardDeduction.first.amount
   end
 end

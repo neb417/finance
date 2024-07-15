@@ -11,6 +11,7 @@ RSpec.describe FederalTaxCalculator, type: :service do
 
   let!(:salary_income) { create(:income) }
   let!(:tax_brackets) { create(:federal_tax_bracket, :with_all_tiers) }
+  let!(:standard_deduction) { create(:standard_deduction) }
 
   it { expect(service).to be_a Money }
 
