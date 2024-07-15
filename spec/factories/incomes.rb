@@ -26,11 +26,11 @@ FactoryBot.define do
       weekly_income_cents { 300_000 * 40 }
     end
 
-    # trait :with_all_types do
-    #   after :create do |_record|
-    #     create(:income, :hourly)
-    #   end
-    # end
+    trait :with_all_types do
+      after :create do |_record|
+        create(:income, :hourly)
+      end
+    end
 
     # to_create do |instance|
     #   instance.id = Income.find_or_create_by(income_type: instance.income_type).id

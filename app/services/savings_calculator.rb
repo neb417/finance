@@ -11,8 +11,8 @@ class SavingsCalculator
     :daily_saving
 
   def initialize(income_type, saving_rate)
-    @annual_income = income_type.annual_income
-    @saving_rate = saving_rate
+    @annual_income = income_type
+    @saving_rate = saving_rate.rate
     @annual_saving = calculate_savings
     @bi_weekly_saving = calculate_bi_weekly_saving
     @daily_saving = calculate_daily_saving

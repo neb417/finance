@@ -15,27 +15,29 @@
 #  updated_at            :datetime         not null
 #
 FactoryBot.define do
+  # tax_brackets = 10% on first $1,000, 15% from $1,001 to $100,000, 25% from $100,001 to $500,000
+
   factory :federal_tax_bracket do
     tier { "Tier 1" }
     bottom_range_cents { 0 }
-    top_range_cents { 100_000 }
+    top_range_cents { 100_000 } # $1,000.00
     rate { 0.1 }
     cumulative_cents { 0 }
 
     trait :tier_2 do
       tier { "Tier 2" }
-      bottom_range_cents { 1_000_100 }
-      top_range_cents { 10_000_000 }
+      bottom_range_cents { 100_100 } # $1,001.00
+      top_range_cents { 10_000_000 } # $100,000.00
       rate { 0.15 }
-      cumulative_cents { 200_000 }
+      cumulative_cents { 10_000 } # $100.00
     end
 
     trait :tier_3 do
       tier { "Tier 2" }
-      bottom_range_cents { 10_000_100 }
-      top_range_cents { 50_000_000 }
+      bottom_range_cents { 10_000_100 } # $100,001.00
+      top_range_cents { 50_000_000 } # $500,000.00
       rate { 0.25 }
-      cumulative_cents { 500_000 }
+      cumulative_cents { 1_485_000 } # $14,850.00
     end
 
     trait :with_all_tiers do

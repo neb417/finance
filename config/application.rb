@@ -23,6 +23,10 @@ module Finance
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
+    # Load in all modules
+    config.autoload_paths << Rails.root.join("lib", "modules")
+    config.eager_load_paths << Rails.root.join("lib", "modules")
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
