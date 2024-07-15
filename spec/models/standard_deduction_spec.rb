@@ -11,5 +11,6 @@
 require 'rails_helper'
 
 RSpec.describe StandardDeduction, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { is_expected.to validate_presence_of(:amount_cents) }
+  it { is_expected.to validate_presence_of(:amount_currency) }
 end

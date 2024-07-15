@@ -10,6 +10,8 @@
 #
 FactoryBot.define do
   factory :standard_deduction do
-    
+    # standard deduction amount is $13,850
+    amount_cents { 1_385_000 }
+    amount_currency { "USD" }
   end
 end
