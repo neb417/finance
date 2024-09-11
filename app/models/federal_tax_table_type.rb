@@ -10,6 +10,6 @@
 class FederalTaxTableType < ApplicationRecord
   has_many :federal_tax_brackets
 
-  FILING_TYPES = %w(single married_filing_jointly married_filing_separately head_of_household)
+  FILING_TYPES = %w[single married_filing_jointly married_filing_separately head_of_household]
   validates :filing_status, presence: true, inclusion: FILING_TYPES
 end

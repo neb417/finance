@@ -9,6 +9,5 @@
 #
 FactoryBot.define do
   factory :federal_tax_table_type do
-    
   end
 end
