@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_07_15_131211) do
+ActiveRecord::Schema[7.0].define(version: 2024_09_11_123818) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -26,6 +26,14 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_15_131211) do
     t.float "rate"
     t.integer "cumulative_cents", default: 0, null: false
     t.string "cumulative_currency", default: "USD", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "federal_tax_table_type_id"
+    t.index ["federal_tax_table_type_id"], name: "index_federal_tax_brackets_on_federal_tax_table_type_id"
+  end
+
+  create_table "federal_tax_table_types", force: :cascade do |t|
+    t.string "filing_status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -67,4 +75,5 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_15_131211) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "federal_tax_brackets", "federal_tax_table_types"
 end
