@@ -34,8 +34,30 @@
             </div>
           <% end %>
         </div>
-
       </div>
+
+      <%= form_with model: @federal_tax_table_type, local: true do |form| %>
+        <div class="grid grid-cols-4">
+          <div class="flex">
+            <%= form.label :single %>
+            <%= form.radio_button :single, FederalTaxTableType.find_by(filing_status: 'single').id, required: true %>
+          </div>
+          <div class="flex">
+            <%= form.label :married_filing_jointly %>
+            <%= form.radio_button :married_filing_jointly, FederalTaxTableType.find_by(filing_status: 'married_filing_jointly').id %>
+          </div>
+          <div class="flex">
+            <%= form.label :married_filing_separately %>
+            <%= form.radio_button :married_filing_separately,  FederalTaxTableType.find_by(filing_status: 'married_filing_separately').id %>
+          </div>
+
+          <div class="flex">
+            <%= form.label :head_of_household %>
+            <%= form.radio_button :head_of_household,  FederalTaxTableType.find_by(filing_status: 'head_of_household') %>
+          </div>
+        </div>
+      <% end %>
+
       <div id="final_income">
         <%= render partial: "budget/salary_budget",
                    locals: {
