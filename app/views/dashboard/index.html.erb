@@ -36,27 +36,21 @@
         </div>
       </div>
 
-      <%= form_with model: @federal_tax_table_type, local: true do |form| %>
-        <div class="grid grid-cols-4">
-          <div class="flex">
-            <%= form.label :single %>
-            <%= form.radio_button :single, FederalTaxTableType.find_by(filing_status: 'single').id, required: true %>
+      <div class="py-4" id="federal_tax_status">
+        <strong>Filing status</strong>
+        <%= form_with url: federal_tax_filing_status_select_path, local: true do |form| %>
+          <div class="flex flex-row">
+            <% FederalTaxTableType.all.each do |table| %>
+              <div class="mx-auto">
+                <%= form.radio_button :fed_tax_table, table.id, onchange: "this.form.requestSubmit()" %>
+                <%= form.label :fed_tax_table, table.filing_status.humanize.capitalize %>
+  <!--              <input type="radio" value="<%#= table.id %>" name="tax_table" id="tax_table">-->
+  <!--              <label for="tax_table"><%#= table.filing_status.humanize.capitalize %></label>-->
+              </div>
+            <% end %>
           </div>
-          <div class="flex">
-            <%= form.label :married_filing_jointly %>
-            <%= form.radio_button :married_filing_jointly, FederalTaxTableType.find_by(filing_status: 'married_filing_jointly').id %>
-          </div>
-          <div class="flex">
-            <%= form.label :married_filing_separately %>
-            <%= form.radio_button :married_filing_separately,  FederalTaxTableType.find_by(filing_status: 'married_filing_separately').id %>
-          </div>
-
-          <div class="flex">
-            <%= form.label :head_of_household %>
-            <%= form.radio_button :head_of_household,  FederalTaxTableType.find_by(filing_status: 'head_of_household') %>
-          </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
 
       <div id="final_income">
         <%= render partial: "budget/salary_budget",

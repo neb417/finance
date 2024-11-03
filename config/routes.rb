@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   root "dashboard#index"
   resources :incomes
   post "/income_switch", to: "incomes#income_switch"
+  post '/federal_tax_filing_status_select', to: 'federal_tax_brackets#federal_tax_filing_status_select'
 end
