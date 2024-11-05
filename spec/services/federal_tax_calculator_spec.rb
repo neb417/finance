@@ -5,7 +5,8 @@ require("rails_helper")
 RSpec.describe FederalTaxCalculator, type: :service do
   subject(:service) do
     described_class.call(
-      income: salary_income.rate
+      income: salary_income.rate,
+      federal_tax_table_type_id: tax_brackets.federal_tax_table_type_id
     )
   end
 

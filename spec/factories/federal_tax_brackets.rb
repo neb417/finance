@@ -52,9 +52,9 @@ FactoryBot.define do
     end
 
     trait :with_all_tiers do
-      after :create do |_record|
-        create(:federal_tax_bracket, :tier_2)
-        create(:federal_tax_bracket, :tier_3)
+      after :create do |record|
+        create(:federal_tax_bracket, :tier_2, federal_tax_table_type: record.federal_tax_table_type)
+        create(:federal_tax_bracket, :tier_3, federal_tax_table_type: record.federal_tax_table_type)
       end
     end
     #
