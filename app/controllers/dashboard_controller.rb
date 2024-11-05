@@ -8,6 +8,7 @@ class DashboardController < ApplicationController
 
   def switch_taxable_income
     build_dashboard_variables!
+
     render_respond_to(render_dashboard)
   end
 end
