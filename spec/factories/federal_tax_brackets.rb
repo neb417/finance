@@ -24,9 +24,12 @@
 #  fk_rails_...  (federal_tax_table_type_id => federal_tax_table_types.id)
 #
 FactoryBot.define do
+
   # tax_brackets = 10% on first $1,000, 15% from $1,001 to $100,000, 25% from $100,001 to $500,000
 
   factory :federal_tax_bracket do
+    federal_tax_table_type
+
     tier { "Tier 1" }
     bottom_range_cents { 0 }
     top_range_cents { 100_000 } # $1,000.00

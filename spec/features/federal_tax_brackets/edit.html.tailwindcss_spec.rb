@@ -7,7 +7,8 @@ RSpec.describe "federal_tax_brackets/edit", type: :view do
       bottom_range: 1,
       top_range: 1,
       rate: 1.5,
-      cumulative: 1
+      cumulative: 1,
+      federal_tax_table_type: create(:federal_tax_table_type)
     )
   }
 
