@@ -2,22 +2,33 @@
 #
 # Table name: federal_tax_brackets
 #
-#  id                    :bigint           not null, primary key
-#  bottom_range_cents    :integer          default(0), not null
-#  bottom_range_currency :string           default("USD"), not null
-#  cumulative_cents      :integer          default(0), not null
-#  cumulative_currency   :string           default("USD"), not null
-#  rate                  :float
-#  tier                  :string
-#  top_range_cents       :integer          default(0), not null
-#  top_range_currency    :string           default("USD"), not null
-#  created_at            :datetime         not null
-#  updated_at            :datetime         not null
+#  id                        :bigint           not null, primary key
+#  bottom_range_cents        :integer          default(0), not null
+#  bottom_range_currency     :string           default("USD"), not null
+#  cumulative_cents          :integer          default(0), not null
+#  cumulative_currency       :string           default("USD"), not null
+#  rate                      :float
+#  tier                      :string
+#  top_range_cents           :integer          default(0), not null
+#  top_range_currency        :string           default("USD"), not null
+#  created_at                :datetime         not null
+#  updated_at                :datetime         not null
+#  federal_tax_table_type_id :bigint
+#
+# Indexes
+#
+#  index_federal_tax_brackets_on_federal_tax_table_type_id  (federal_tax_table_type_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (federal_tax_table_type_id => federal_tax_table_types.id)
 #
 FactoryBot.define do
   # tax_brackets = 10% on first $1,000, 15% from $1,001 to $100,000, 25% from $100,001 to $500,000
 
   factory :federal_tax_bracket do
+    federal_tax_table_type
+
     tier { "Tier 1" }
     bottom_range_cents { 0 }
     top_range_cents { 100_000 } # $1,000.00
