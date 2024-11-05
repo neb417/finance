@@ -1,6 +1,6 @@
 <%= turbo_frame_tag dom_id(federal_tax_bracket) do %>
-  <div class="grid grid-cols-6">
-    <% attributes = federal_tax_bracket.tier, humanized_money_with_symbol(federal_tax_bracket.bottom_range), humanized_money_with_symbol(federal_tax_bracket.top_range), number_to_percentage(federal_tax_bracket.rate * 100, precision: 1), humanized_money_with_symbol(federal_tax_bracket.cumulative) %>
+  <div class="grid grid-cols-7">
+    <% attributes = federal_tax_bracket.federal_tax_table_type.filing_status.humanize.capitalize, federal_tax_bracket.tier, humanized_money_with_symbol(federal_tax_bracket.bottom_range), humanized_money_with_symbol(federal_tax_bracket.top_range), number_to_percentage(federal_tax_bracket.rate * 100, precision: 1), humanized_money_with_symbol(federal_tax_bracket.cumulative) %>
     <% attributes.each do |attribute| %>
       <div class="py-1"><%= attribute %></div>
     <% end %>
