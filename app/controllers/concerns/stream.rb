@@ -16,7 +16,7 @@ module Stream
     [
       turbo_stream.replace("salary_budget",
         partial: "budget/hourly_budget",
-        locals: build_locals(tax_on_hourly))
+        locals: build_locals(hourly_income))
     ]
   end
 
@@ -24,7 +24,7 @@ module Stream
     [
       turbo_stream.replace("hourly_budget",
         partial: "budget/salary_budget",
-        locals: build_locals(tax_on_salary))
+        locals: build_locals(salary_income))
     ]
   end
 
