@@ -61,10 +61,6 @@ class FederalTaxBracketsController < ApplicationController
     end
   end
 
-  def federal_tax_filing_status_select
-    @federal_tax_bracket = FederalTaxBracket.find(params[:fed_tax_table])
-  end
-
   private
 
   # Use callbacks to share common setup or constraints between actions.

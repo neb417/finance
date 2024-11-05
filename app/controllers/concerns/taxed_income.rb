@@ -8,8 +8,6 @@ module TaxedIncome
     @hourly_taxed = build_income_tax_object(income: hourly_income)
   end
 
-  private
-
   def salary_income
     @salary_income = Income.find_by(income_type: "Salary").weekly_income * 52
   end
@@ -18,8 +16,13 @@ module TaxedIncome
     @hourly_income = Income.find_by(income_type: "Hourly").weekly_income * 52
   end
 
+  def federal_tax_table_type_id
+    filter = params[:federal_tax_table_type_id].present? ? { id: params[:federal_tax_table_type_id] } : { filing_status: "single" }
+    FederalTaxTableType.find_by(filter).id
+  end
+
   def build_income_tax_object(income:)
-    federal_tax = FederalTaxCalculator.call(income: income)
+    federal_tax = FederalTaxCalculator.call(income: income, federal_tax_table_type_id: federal_tax_table_type_id)
     fica_tax = FicaTaxCalculator.call(income: income)
     state_tax = StateTaxCalculator.call(income: income)
     net_income = income - (fica_tax + federal_tax + state_tax)
