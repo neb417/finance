@@ -18,7 +18,7 @@ module TaxedIncome
 
   def federal_tax_table_type_id
     filter = params[:federal_tax_table_type_id].present? ? { id: params[:federal_tax_table_type_id] } : { filing_status: "single" }
-    FederalTaxTableType.find_by(filter).id
+    @federal_tax_table_type_id = FederalTaxTableType.find_by(filter).id
   end
 
   def build_income_tax_object(income:)
