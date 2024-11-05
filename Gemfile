@@ -60,9 +60,9 @@ group :development, :test do
   gem "faker"
   gem "launchy"
   gem "orderly"
-  gem 'pry-byebug'
-  gem 'pry-rescue'
-  gem 'pry-rails'
+  gem "pry-byebug"
+  gem "pry-rescue"
+  gem "pry-rails"
   gem "rspec-rails"
   gem "shoulda-matchers"
   gem "simplecov"
