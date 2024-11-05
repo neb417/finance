@@ -31,7 +31,7 @@ class FederalTaxBracket < ApplicationRecord
   monetize :cumulative_cents
 
   def self.order_by_range
-    all.order(:bottom_range_cents)
+    all.order(:federal_tax_table_type_id, :bottom_range_cents)
   end
 
   def update_rate(rate:)
