@@ -37,7 +37,7 @@
             <div class="flex flex-row">
               <% FederalTaxTableType.all.each do |table| %>
                 <div class="mx-auto">
-                  <%= form.radio_button :federal_tax_table_type_id, table.id, checked: table.id == @federal_tax_table_type_id, onchange: "this.form.requestSubmit()" %>
+                  <%= form.radio_button :federal_tax_table_type_id, table.id, checked: table.id == @federal_tax_table_type_id, onchange: "this.form.requestSubmit()", class: "radio-button" %>
                   <%= form.label :federal_tax_table_type_id, table.filing_status.humanize.capitalize %>
                 </div>
               <% end %>
