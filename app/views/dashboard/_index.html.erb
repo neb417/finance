@@ -1,12 +1,6 @@
 <%= turbo_frame_tag "primary_frame" do %>
   <div class="min-h-full">
     <div class="primary-card">
-      <div class="mx-auto px-4 py-6 sm:px-6 lg:px-8">
-        <%= render partial: "components/toolbar" %>
-      </div>
-    </div>
-
-    <div class="primary-card">
       <div class="mx-auto py-6 sm:px-6 lg:px-8">
         <div class="grid grid-cols-3">
           <h3>Final Budget</h3>
@@ -43,7 +37,7 @@
             <div class="flex flex-row">
               <% FederalTaxTableType.all.each do |table| %>
                 <div class="mx-auto">
-                  <%= form.radio_button :federal_tax_table_type_id, table.id, checked: table.id == @federal_tax_table_type_id, onchange: "this.form.requestSubmit()" %>
+                  <%= form.radio_button :federal_tax_table_type_id, table.id, checked: table.id == @federal_tax_table_type_id, onchange: "this.form.requestSubmit()", class: "radio-button" %>
                   <%= form.label :federal_tax_table_type_id, table.filing_status.humanize.capitalize %>
                 </div>
               <% end %>
@@ -95,5 +89,5 @@
         <%= render partial: "shared/total_costs", locals: { total_cost: @total_cost } %>
       </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>

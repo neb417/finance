@@ -12,6 +12,9 @@ module.exports = {
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
+      colors:{
+        'primary-purple': '#5521B5',
+      }
     },
   },
   plugins: [
@@ -19,5 +22,6 @@ module.exports = {
     require('@tailwindcss/aspect-ratio'),
     require('@tailwindcss/typography'),
     require('@tailwindcss/container-queries'),
+    require('flowbite/plugin')
   ]
 }

@@ -1,17 +1,19 @@
-<ul class="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400">
-  <li class="mx-auto">
-    <a href="<%= root_path %>" aria-current="page" class="inline-block p-4 text-blue-600 bg-gray-100 rounded-t-lg active dark:bg-gray-800 dark:text-blue-500">Budget Calculator</a>
-  </li>
-  <li class="mx-auto">
-    <a href="<%= federal_tax_brackets_path %>" class="inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 dark:hover:text-gray-300">Federal Tax Brackets</a>
-  </li>
-  <li class="mx-auto">
-    <a href="#" class="inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 dark:hover:text-gray-300">State Income Tax</a>
-  </li>
-  <li class="mx-auto">
-    <a href="#" class="inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 dark:hover:text-gray-300">Incomes</a>
-  </li>
-  <li class="mx-auto">
-    <a class="inline-block p-4 text-gray-400 rounded-t-lg cursor-not-allowed dark:text-gray-500">Fixed Expenses</a>
-  </li>
-</ul>
+<%= turbo_frame_tag "dashboard_toolbar" do %>
+  <ul class="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200">
+    <li class="mx-auto">
+      <%= link_to "Budget Calculator", root_path, data: { turbo_stream: true }, class: active_tab == :budget_calculator ? "active-toolbar-tab" : "inactive-toolbar-tab" %>
+    </li>
+    <li class="mx-auto">
+      <%= link_to "Federal Tax Brackets", federal_tax_brackets_path, data: { turbo_stream: true }, class: active_tab == :federal_tax_brackets ? "active-toolbar-tab" : "inactive-toolbar-tab" %>
+    </li>
+    <li class="mx-auto">
+      <a href="#" class="inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50">State Income Tax</a>
+    </li>
+    <li class="mx-auto">
+      <a href="#" class="inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50">Incomes</a>
+    </li>
+    <li class="mx-auto">
+      <a href="#"  class="inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50">Fixed Expenses</a>
+    </li>
+  </ul>
+<% end %>

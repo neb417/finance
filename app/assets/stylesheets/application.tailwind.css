@@ -4,7 +4,7 @@
 
 @layer components {
   .btn-primary {
-    @apply rounded-lg px-4 bg-purple-800 inline-block font-medium text-white;
+    @apply rounded-lg px-4 bg-primary-purple inline-block font-medium text-white;
   }
 
   .btn-danger {
@@ -40,6 +40,32 @@
     margin-bottom: 0.5rem;
     border-radius: 0.5rem;
     color: #2b2b2b;
+  }
+
+  .active-toolbar-tab {
+    background-color: white;
+    display: inline-block;
+    padding: 16px;
+    color: #5521B5;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+  }
+
+  .inactive-toolbar-tab {
+    display: inline-block;
+    padding: 16px;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+  }
+
+  .inactive-toolbar-tab:hover {
+    color: rgb(75 85 99);
+    background-color: rgb(249 250 251);
+  }
+
+  input[type="radio"].radio-button:checked {
+    background-color:#5521B5;
+    border:1px solid black;
   }
 }
 
