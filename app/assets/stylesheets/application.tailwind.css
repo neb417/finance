@@ -41,6 +41,27 @@
     border-radius: 0.5rem;
     color: #2b2b2b;
   }
+
+  .active-toolbar-tab {
+    background-color: white;
+    display: inline-block;
+    padding: 16px;
+    color: rgb(107 33 168);
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+  }
+
+  .inactive-toolbar-tab {
+    display: inline-block;
+    padding: 16px;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+  }
+
+  .inactive-toolbar-tab:hover {
+    color: rgb(75 85 99);
+    background-color: rgb(249 250 251);
+  }
 }
 
 

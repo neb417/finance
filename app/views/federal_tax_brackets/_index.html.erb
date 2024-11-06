@@ -1,17 +1,30 @@
-<%= turbo_frame_tag :federal_tax_brackets do %>
-  <div class="primary-card">
-    <div class=" py-6 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-7">
-        <% tax_headings = ["Filing Status", "Tier", "From", "To", "Rate", "Cumulative"] %>
-        <% tax_headings.each do |tax_heading| %>
-          <div>
-            <strong><%= tax_heading %></strong>
+<%= turbo_frame_tag "primary_frame" do %>
+  <%= turbo_frame_tag :federal_tax_brackets do %>
+    <div class="min-h-full">
+      <div class="primary-card">
+        <div class="mx-auto py-6 sm:px-6 lg:px-8">
+          <div class="flex flex-row">
+            <h1 class="font-bold text-4xl mr-4">Federal Tax Brackets</h1>
+            <%= link_to 'New federal tax bracket', new_federal_tax_bracket_path, class: "rounded-lg py-2 px-5 bg-blue-600 text-white block font-medium" %>
           </div>
-        <% end %>
-        <div> </div>
+        </div>
       </div>
 
-      <%= render @federal_tax_brackets %>
+      <div class="primary-card">
+        <div class="mx-auto py-6 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-7">
+            <% tax_headings = ["Filing Status", "Tier", "From", "To", "Rate", "Cumulative"] %>
+            <% tax_headings.each do |tax_heading| %>
+              <div>
+                <strong><%= tax_heading %></strong>
+              </div>
+            <% end %>
+            <div> </div>
+          </div>
+
+          <%= render @federal_tax_brackets %>
+        </div>
+      </div>
     </div>
-  </div>
+  <% end %>
 <% end %>
