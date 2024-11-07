@@ -1,25 +1,27 @@
 <%= turbo_frame_tag "total_costs" do %>
-  <div class="grid grid-cols-5">
-    <div class="px-5">
-      <strong>Total</strong>
-    </div>
+  <div class="mx-auto sm:px-6 lg:px-8">
+    <div class="grid grid-cols-5">
+      <div class="px-5">
+        <strong>Total</strong>
+      </div>
 
-    <div>
-      <strong>
-        <%= render partial: "shared/total", locals: { total: total_cost.annual_cost } %>
-      </strong>
-    </div>
+      <div>
+        <strong>
+          <%= render partial: "shared/total", locals: { total: total_cost.annual_cost } %>
+        </strong>
+      </div>
 
-    <div>
-      <strong>
-        <%= render partial: "shared/total", locals: { total: total_cost.monthly_cost } %>
-      </strong>
-    </div>
+      <div>
+        <strong>
+          <%= render partial: "shared/total", locals: { total: total_cost.monthly_cost } %>
+        </strong>
+      </div>
 
-    <div>
-      <strong>
-        <%= render partial: "shared/total", locals: { total: total_cost.bi_weekly_cost } %>
-      </strong>
+      <div>
+        <strong>
+          <%= render partial: "shared/total", locals: { total: total_cost.bi_weekly_cost } %>
+        </strong>
+      </div>
     </div>
   </div>
 <% end %>
