@@ -1,39 +1,41 @@
 <%= turbo_frame_tag "taxed_incomes" do %>
-  <h3>Gross Income Annual</h3>
-  <div class="grid grid-cols-5">
-    <% fixed_headings = ["Income Type", "Federal Tax", "Fica Tax", "State Tax", "Annual"] %>
-    <% fixed_headings.each do |fixed_heading| %>
-      <div class="px-5"><strong><%= fixed_heading %></strong></div>
-    <% end %>
-  </div>
+  <div class="mx-auto pb-6 sm:px-6 lg:px-8">
+    <h3>Gross Income Annual</h3>
+    <div class="grid grid-cols-5">
+      <% fixed_headings = ["Income Type", "Federal Tax", "Fica Tax", "State Tax", "Annual"] %>
+      <% fixed_headings.each do |fixed_heading| %>
+        <div class="px-5"><strong><%= fixed_heading %></strong></div>
+      <% end %>
+    </div>
 
-  <div class="grid grid-cols-5">
-    <div class="px-5">Salary</div>
-    <%= render partial: "shared/taxed_income", locals: { taxed_income: salary_taxed, annual: true } %>
-  </div>
+    <div class="grid grid-cols-5">
+      <div class="px-5">Salary</div>
+      <%= render partial: "shared/taxed_income", locals: { taxed_income: salary_taxed, annual: true } %>
+    </div>
 
-  <div class="grid grid-cols-5">
-    <div class="px-5">Hourly</div>
-    <%= render partial: "shared/taxed_income", locals: { taxed_income: hourly_taxed, annual: true } %>
-  </div>
+    <div class="grid grid-cols-5">
+      <div class="px-5">Hourly</div>
+      <%= render partial: "shared/taxed_income", locals: { taxed_income: hourly_taxed, annual: true } %>
+    </div>
 
-  <br>
+    <br>
 
-  <h3>Gross Income Bi-Weekly</h3>
-  <div class="grid grid-cols-5">
-    <% fixed_headings = ["Income Type", "Federal Tax", "Fica Tax", "State Tax", "Bi-weekly"] %>
-    <% fixed_headings.each do |fixed_heading| %>
-      <div class="px-5"><strong><%= fixed_heading %></strong></div>
-    <% end %>
-  </div>
+    <h3>Gross Income Bi-Weekly</h3>
+    <div class="grid grid-cols-5">
+      <% fixed_headings = ["Income Type", "Federal Tax", "Fica Tax", "State Tax", "Bi-weekly"] %>
+      <% fixed_headings.each do |fixed_heading| %>
+        <div class="px-5"><strong><%= fixed_heading %></strong></div>
+      <% end %>
+    </div>
 
-  <div class="grid grid-cols-5">
-    <div class="px-5">Salary</div>
-    <%= render partial: "shared/taxed_income", locals: { taxed_income: salary_taxed, annual: false } %>
-  </div>
+    <div class="grid grid-cols-5">
+      <div class="px-5">Salary</div>
+      <%= render partial: "shared/taxed_income", locals: { taxed_income: salary_taxed, annual: false } %>
+    </div>
 
-  <div class="grid grid-cols-5">
-    <div class="px-5">Hourly</div>
-    <%= render partial: "shared/taxed_income", locals: { taxed_income: hourly_taxed, annual: false } %>
+    <div class="grid grid-cols-5">
+      <div class="px-5">Hourly</div>
+      <%= render partial: "shared/taxed_income", locals: { taxed_income: hourly_taxed, annual: false } %>
+    </div>
   </div>
 <% end %>
