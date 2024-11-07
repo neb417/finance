@@ -4,10 +4,6 @@ class FederalTaxBracketsController < ApplicationController
   # GET /federal_tax_brackets or /federal_tax_brackets.json
   def index
     @federal_tax_brackets = FederalTaxBracket.order_by_range
-    respond_to do |format|
-      format.turbo_stream
-      format.html
-    end
   end
 
   # GET /federal_tax_brackets/1 or /federal_tax_brackets/1.json
