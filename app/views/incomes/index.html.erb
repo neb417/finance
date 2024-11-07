@@ -1,14 +1,7 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Incomes</h1>
-
-<div id="incomes">
-  <% @incomes.each do |income| %>
-    <%= render income %>
-    <p>
-      <%= link_to "Show this income", income %>
-    </p>
+<div class="w-full">
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
-</div>
 
-<%= link_to "New income", new_income_path %>
+  <%= render partial: "incomes/index" %>
+</div>
