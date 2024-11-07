@@ -1,11 +1,25 @@
 <%= turbo_frame_tag :incomes do %>
-  <h3>Net Income</h3>
-  <div class="grid grid-cols-5">
-    <% income_headings = ["Income Type", "Rate", "Hours", "Weekly Gross"] %>
-    <% income_headings.each do |income_heading| %>
-      <div class="px-5"><strong><%= income_heading %></strong></div>
-    <% end %>
-  </div>
+  <div class="min-h-full">
+    <div class="primary-card">
+      <div class="mx-auto py-6 sm:px-6 lg:px-8">
+        <strong>Incomes</strong>
+        <div class="mt-2">
+          <%= link_to "New Income", new_income_path, data: { turbo_frame: :incomes }, class: "btn btn-primary" %>
+        </div>
 
-  <%= render @incomes %>
+        <h3>Net Income</h3>
+
+        <div class="grid grid-cols-5">
+          <% income_headings = ["Income Type", "Rate", "Hours", "Weekly Gross"] %>
+          <% income_headings.each do |income_heading| %>
+            <div class="px-5">
+              <strong><%= income_heading %></strong>
+            </div>
+          <% end %>
+        </div>
+
+        <%= render @incomes %>
+      </div>
+    </div>
+  </div>
 <% end %>

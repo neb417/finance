@@ -64,23 +64,10 @@
     </div>
 
     <div class="primary-card">
-      <div class="mx-auto py-6 sm:px-6 lg:px-8">
-        <%= turbo_frame_tag "income_header_frame" do %>
-          <strong>Incomes</strong>
-          <div class="mt-4">
-            <%= link_to "New Income", new_income_path, data: { turbo_frame: :incomes }, class: "btn btn-primary" %>
-          </div>
-        <% end %>
+      <%= render "incomes/index" %>
 
-        <div class="pt-4">
-          <%= render "incomes/index" %>
-        </div>
-
-        <div class="pt-4">
-          <%= render partial: "shared/taxed_incomes",
-                     locals: { salary_taxed: @salary_taxed, hourly_taxed: @hourly_taxed } %>
-        </div>
-      </div>
+      <%= render partial: "shared/taxed_incomes",
+                 locals: { salary_taxed: @salary_taxed, hourly_taxed: @hourly_taxed } %>
     </div>
 
     <div class="primary-card">

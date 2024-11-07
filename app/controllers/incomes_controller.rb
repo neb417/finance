@@ -10,6 +10,11 @@ class IncomesController < ApplicationController
   # GET /incomes or /incomes.json
   def index
     @incomes = Income.all
+
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: @incomes }
+    end
   end
 
   # GET /incomes/1 or /incomes/1.json
