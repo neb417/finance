@@ -14,6 +14,7 @@
 
   <body class="bg-gray-200">
     <main class="mx-auto px-9 flex flex-container">
+      <%= render partial: "components/toolbar", locals: { active_tab: :budget_calculator } %>
       <%= yield %>
     </main>
   </body>
