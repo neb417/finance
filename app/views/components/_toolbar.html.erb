@@ -7,13 +7,10 @@
       <%= link_to "Federal Tax Brackets", federal_tax_brackets_path, data: { turbo_stream: true }, class: active_tab == :federal_tax_brackets ? "active-toolbar-tab" : "inactive-toolbar-tab" %>
     </li>
     <li class="mx-auto">
-      <a href="#" class="inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50">State Income Tax</a>
+      <%= link_to "Incomes", incomes_path, class: active_tab == :incomes ? "active-toolbar-tab" : "inactive-toolbar-tab" %>
     </li>
     <li class="mx-auto">
-      <a href="#" class="inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50">Incomes</a>
-    </li>
-    <li class="mx-auto">
-      <a href="#"  class="inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50">Fixed Expenses</a>
+      <%= link_to "Fixed Expenses", fixed_expenses_path, class: active_tab == :fixed_expenses ? "active-toolbar-tab" : "inactive-toolbar-tab" %>
     </li>
   </ul>
 <% end %>
