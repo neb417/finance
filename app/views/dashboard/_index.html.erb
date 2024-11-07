@@ -71,14 +71,7 @@
     </div>
 
     <div class="primary-card">
-      <div class="mx-auto py-6 sm:px-6 lg:px-8">
-        <%= turbo_frame_tag "fixed_expense_header_frame" do %>
-          <strong>Fixed Expenses</strong>
-          <div class="mt-4">
-            <%= link_to "New Fixed Expense", new_fixed_expense_path, data: { turbo_frame: :fixed_expenses }, class: "btn btn-primary" %>
-          </div>
-        <% end %>
-
+      <div class="pb-6">
         <%= render "fixed_expenses/index" %>
 
         <%= render partial: "shared/total_costs", locals: { total_cost: @total_cost } %>

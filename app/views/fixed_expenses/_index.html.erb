@@ -1,10 +1,21 @@
 <%= turbo_frame_tag :fixed_expenses do %>
-  <div id="fixed_expense_labels" class="grid grid-cols-5">
-    <% fixed_headings = %w[Expense Annual Monthly Bi-weekly] %>
-    <% fixed_headings.each do |fixed_heading| %>
-      <div class="px-5 pt-4"><strong><%= fixed_heading %></strong></div>
-    <% end %>
-  </div>
+  <div class="primary-card">
+    <div class="mx-auto pt-6 sm:px-6 lg:px-8">
+      <%= turbo_frame_tag "fixed_expense_header_frame" do %>
+        <strong>Fixed Expenses</strong>
+        <div class="mt-4">
+          <%= link_to "New Fixed Expense", new_fixed_expense_path, data: { turbo_frame: :fixed_expenses }, class: "btn btn-primary" %>
+        </div>
+      <% end %>
 
-  <%= render @fixed_expenses %>
+      <div id="fixed_expense_labels" class="grid grid-cols-5">
+        <% fixed_headings = %w[Expense Annual Monthly Bi-weekly] %>
+        <% fixed_headings.each do |fixed_heading| %>
+          <div class="px-5 pt-4"><strong><%= fixed_heading %></strong></div>
+      <% end %>
+      </div>
+
+      <%= render @fixed_expenses %>
+    </div>
+  </div>
 <% end %>
