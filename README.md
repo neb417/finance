@@ -1,24 +1,40 @@
-# README
+# Finance Calculator
+> This is a calculator to help someone budget their finances, or practice Rails Development
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+![](header.png)
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+This app requires Rails 7.1 and Ruby 3.2:
 
-* System dependencies
+Get up and running with 4 easy steps!
 
-* Configuration
+1. Add gems:
+```sh
+bundle install
+```
 
-* Database creation
+2. migrate the database:
 
-* Database initialization
+```sh
+rails db:migrate
+```
 
-* How to run the test suite
+3. Migrate the seed data:
 
-* Services (job queues, cache servers, search engines, etc.)
+```sh
+rails data:migrate
+```
 
-* Deployment instructions
+4. Start your server:
+```sh
+bin/dev || rails s
+```
 
-* ...
+## Contributing
+
+1. Fork it (<https://github.com/neb417/finance/fork>)
+2. Create your feature branch (`git checkout -b feature/fooBar`)
+3. Commit your changes (`git commit -am 'Add some fooBar'`)
+4. Push to the branch (`git push origin feature/fooBar`)
+5. Create a new Pull Request
