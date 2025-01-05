@@ -1,2 +1,2 @@
 <%= turbo_stream.replace "dashboard_toolbar", partial: "components/toolbar", locals: { active_tab: :fixed_expenses} %>
-<%= turbo_stream.replace "primary_frame", partial:'fixed_expenses/dashboard' %>
+<%= turbo_stream.replace "primary_frame", partial: 'dashboard/resource', locals: { resource: 'fixed_expenses', resources: @fixed_expenses } %>
