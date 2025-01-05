@@ -6,6 +6,11 @@ class FixedExpensesController < ApplicationController
   # GET /fixed_expenses or /fixed_expenses.json
   def index
     @fixed_expenses = FixedExpense.all
+
+    respond_to do |format|
+      format.turbo_stream
+      format.html
+    end
   end
 
   # GET /fixed_expenses/1 or /fixed_expenses/1.json

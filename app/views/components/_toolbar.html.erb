@@ -10,7 +10,7 @@
       <%= link_to "Incomes", incomes_path, data: { turbo_stream: true }, class: active_tab == :incomes ? "active-toolbar-tab" : "inactive-toolbar-tab" %>
     </li>
     <li>
-      <%= link_to "Fixed Expenses", fixed_expenses_path, data: { turbo: false }, class: active_tab == :fixed_expenses ? "active-toolbar-tab" : "inactive-toolbar-tab" %>
+      <%= link_to "Fixed Expenses", fixed_expenses_path, data: { turbo_stream: true }, class: active_tab == :fixed_expenses ? "active-toolbar-tab" : "inactive-toolbar-tab" %>
     </li>
   </ul>
 <% end %>
