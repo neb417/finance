@@ -1,3 +1,5 @@
+<%# locals: (incomes:) %>
+
 <%= turbo_frame_tag :incomes do %>
   <div class="min-h-full">
     <div class="primary-card">
@@ -18,7 +20,7 @@
           <% end %>
         </div>
 
-        <%= render @incomes %>
+        <%= render incomes %>
       </div>
     </div>
   </div>

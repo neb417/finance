@@ -3,5 +3,5 @@
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
 
-  <%= render partial: "federal_tax_brackets/index" %>
+  <%= render partial: "federal_tax_brackets/index", locals: { federal_tax_brackets: @federal_tax_brackets } %>
 </div>
