@@ -1,0 +1,3 @@
+<%= turbo_frame_tag 'primary_frame' do %>
+  <%= render partial: "#{resource}/index", locals: { resource.to_sym => resources } %>
+<% end %>

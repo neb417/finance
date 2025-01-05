@@ -72,7 +72,7 @@
 
     <div class="primary-card">
       <div class="pb-6">
-        <%= render "fixed_expenses/index" %>
+        <%= render partial: "fixed_expenses/index", locals: { fixed_expenses: @fixed_expenses } %>
 
         <%= render partial: "shared/total_costs", locals: { total_cost: @total_cost } %>
       </div>
