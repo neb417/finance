@@ -64,7 +64,7 @@
     </div>
 
     <div class="primary-card">
-      <%= render "incomes/index" %>
+      <%= render partial: "incomes/index", locals: { incomes: @incomes } %>
 
       <%= render partial: "shared/taxed_incomes",
                  locals: { salary_taxed: @salary_taxed, hourly_taxed: @hourly_taxed } %>

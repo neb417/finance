@@ -1,4 +1,6 @@
-<%= turbo_frame_tag 'primary_frame' do %>
+<%# locals: (federal_tax_brackets:) %>
+
+<%= turbo_frame_tag :federal_tax_brackets do %>
   <div class="min-h-full">
     <div class="primary-card">
       <div class="mx-auto pt-6 sm:px-6 lg:px-8">
@@ -19,7 +21,7 @@
           <div> </div>
         </div>
 
-        <%= render @federal_tax_brackets %>
+        <%= render federal_tax_brackets %>
       </div>
     </div>
   </div>
