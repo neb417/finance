@@ -54,6 +54,10 @@ gem "net-http"
 
 gem "data_migrate"
 
+gem "rack"
+
+gem "net-imap"
+
 group :development, :test do
   gem "capybara"
   gem "factory_bot_rails"
