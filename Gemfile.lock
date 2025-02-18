@@ -373,12 +373,14 @@ DEPENDENCIES
   launchy
   money-rails
   net-http
+  net-imap
   orderly
   pg
   pry-byebug
   pry-rails
   pry-rescue
   puma
+  rack
   rails (~> 7.2)
   redis
   rspec-rails
