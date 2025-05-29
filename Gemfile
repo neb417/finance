@@ -86,4 +86,4 @@ group :development do
   gem "annotate"
 end
 
-gem "tailwindcss-rails"
+gem "tailwindcss-rails", "~> 3.3"
