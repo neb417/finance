@@ -1,7 +1,6 @@
 # Finance Calculator
 > This is a calculator to help someone budget their finances, or practice Rails Development
 
-![](header.png)
 
 ## Installation
 
@@ -17,7 +16,8 @@ bundle install
 2. migrate the database:
 
 ```sh
-rails db:migrate
+$ bin/rails db:create
+$ bin/rails db:migrate
 ```
 
 3. Migrate the seed data:
