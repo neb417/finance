@@ -3,10 +3,8 @@
 <%= turbo_frame_tag :fixed_expenses do %>
   <div class="primary-card">
     <div class="mx-auto py-6 sm:px-6 lg:px-8">
-      <%= turbo_frame_tag "fixed_expense_header_frame" do %>
-        <strong class="mr-4">Fixed Expenses</strong>
-        <%= link_to "New Fixed Expense", new_fixed_expense_path, data: { turbo_frame: :fixed_expenses }, class: "btn btn-primary" %>
-      <% end %>
+      <strong class="mr-4">Fixed Expenses</strong>
+      <%= render "fixed_expenses/new_button" %>
 
       <div id="fixed_expense_labels" class="grid grid-cols-5">
         <% fixed_headings = %w[Expense Annual Monthly Bi-weekly] %>

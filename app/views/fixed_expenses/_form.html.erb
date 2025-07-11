@@ -1,45 +1,47 @@
-<%= form_with(model: fixed_expense, class: "contents") do |form| %>
-  <% if fixed_expense.errors.any? %>
-    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
-      <h2><%= pluralize(fixed_expense.errors.count, "error") %> prohibited this fixed_expense from being saved:</h2>
+<%= turbo_frame_tag :new_fixed_expense do %>
+    <%= form_with(model: fixed_expense, class: "contents") do |form| %>
+    <% if fixed_expense.errors.any? %>
+      <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+        <h2><%= pluralize(fixed_expense.errors.count, "error") %> prohibited this fixed_expense from being saved:</h2>
 
-      <ul>
-        <% fixed_expense.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% fixed_expense.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="flex-container">
+      <div class="my-5 px-5">
+        <%= form.label :expense_name %>
+        <%= form.text_field :expense_name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+      </div>
+
+      <div class="my-5 px-5">
+        <%= form.label :amount %>
+        <%= form.number_field :amount, step: :any, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+      </div>
+
+      <div class="my-5 px-5">
+        <%#= form.label :frequency %>
+        <div class="my-5 px-5">
+          <%= form.label :frequency, "Annually", value: "annually" %>
+          <%= form.radio_button :frequency, "annually" %>
+        </div>
+        <div class="my-5 px-5">
+          <%= form.label :frequency, "Monthly", value: "monthly" %>
+          <%= form.radio_button :frequency, "monthly" %>
+        </div>
+      </div>
+
+      <div class="my-5 px-5">
+        <div class="py-3">
+          <%= form.submit class: "btn btn-primary" %>
+        </div>
+        <div>
+          <%= link_to "Cancel", root_path, class: "btn btn-secondary", data:{ turbo_frame: :fixed_expenses } %>
+        </div>
+      </div>
     </div>
   <% end %>
-  <div class="flex-container">
-    <div class="my-5 px-5">
-      <%= form.label :expense_name %>
-      <%= form.text_field :expense_name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-    </div>
-
-    <div class="my-5 px-5">
-      <%= form.label :amount %>
-      <%= form.number_field :amount, step: :any, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-    </div>
-
-    <div class="my-5 px-5">
-      <%#= form.label :frequency %>
-      <div class="my-5 px-5">
-        <%= form.label :frequency, "Annually", value: "annually" %>
-        <%= form.radio_button :frequency, "annually" %>
-      </div>
-      <div class="my-5 px-5">
-        <%= form.label :frequency, "Monthly", value: "monthly" %>
-        <%= form.radio_button :frequency, "monthly" %>
-      </div>
-    </div>
-
-    <div class="my-5 px-5">
-      <div class="py-3">
-        <%= form.submit class: "btn btn-primary" %>
-      </div>
-      <div>
-        <%= link_to "Cancel", root_path, class: "btn btn-secondary", data:{ turbo_frame: :fixed_expenses } %>
-      </div>
-    </div>
-  </div>
 <% end %>
