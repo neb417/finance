@@ -1,6 +1,8 @@
-<%= turbo_stream.replace :fixed_expenses do %>
-  <%= render "fixed_expenses/index" %>
-<% end %>
+<%= turbo_stream.replace :fixed_expenses,
+                         partial: "fixed_expenses/index",
+                         locals: { fixed_expenses: @fixed_expenses }
+
+%>
 
 <%= turbo_stream.update "total_costs",
                         partial: "shared/total_costs",
